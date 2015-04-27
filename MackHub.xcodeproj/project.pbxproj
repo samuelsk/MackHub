@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */; };
+		CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */; };
+		CAFECF051AEEA61500600ED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF041AEEA61500600ED1 /* ViewController.swift */; };
+		CAFECF081AEEA61500600ED1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF061AEEA61500600ED1 /* Main.storyboard */; };
+		CAFECF0A1AEEA61500600ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF091AEEA61500600ED1 /* Images.xcassets */; };
+		CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */; };
+		CAFECF191AEEA61500600ED1 /* MackHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF181AEEA61500600ED1 /* MackHubTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAFECF131AEEA61500600ED1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAFECEF21AEEA61500600ED1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAFECEF91AEEA61500600ED1;
+			remoteInfo = MackHub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CAFECEFA1AEEA61500600ED1 /* MackHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAFECEFE1AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CAFECF021AEEA61500600ED1 /* MackHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MackHub.xcdatamodel; sourceTree = "<group>"; };
+		CAFECF041AEEA61500600ED1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAFECF071AEEA61500600ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CAFECF091AEEA61500600ED1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CAFECF0C1AEEA61500600ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CAFECF121AEEA61500600ED1 /* MackHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAFECF171AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAFECF181AEEA61500600ED1 /* MackHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackHubTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CAFECEF71AEEA61500600ED1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAFECF0F1AEEA61500600ED1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CAFECEF11AEEA61500600ED1 = {
+			isa = PBXGroup;
+			children = (
+				CAFECEFC1AEEA61500600ED1 /* MackHub */,
+				CAFECF151AEEA61500600ED1 /* MackHubTests */,
+				CAFECEFB1AEEA61500600ED1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CAFECEFB1AEEA61500600ED1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECEFA1AEEA61500600ED1 /* MackHub.app */,
+				CAFECF121AEEA61500600ED1 /* MackHubTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CAFECEFC1AEEA61500600ED1 /* MackHub */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
+				CAFECF041AEEA61500600ED1 /* ViewController.swift */,
+				CAFECF061AEEA61500600ED1 /* Main.storyboard */,
+				CAFECF091AEEA61500600ED1 /* Images.xcassets */,
+				CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */,
+				CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */,
+				CAFECEFD1AEEA61500600ED1 /* Supporting Files */,
+			);
+			path = MackHub;
+			sourceTree = "<group>";
+		};
+		CAFECEFD1AEEA61500600ED1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECEFE1AEEA61500600ED1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CAFECF151AEEA61500600ED1 /* MackHubTests */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECF181AEEA61500600ED1 /* MackHubTests.swift */,
+				CAFECF161AEEA61500600ED1 /* Supporting Files */,
+			);
+			path = MackHubTests;
+			sourceTree = "<group>";
+		};
+		CAFECF161AEEA61500600ED1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECF171AEEA61500600ED1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CAFECEF91AEEA61500600ED1 /* MackHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAFECF1C1AEEA61500600ED1 /* Build configuration list for PBXNativeTarget "MackHub" */;
+			buildPhases = (
+				CAFECEF61AEEA61500600ED1 /* Sources */,
+				CAFECEF71AEEA61500600ED1 /* Frameworks */,
+				CAFECEF81AEEA61500600ED1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MackHub;
+			productName = MackHub;
+			productReference = CAFECEFA1AEEA61500600ED1 /* MackHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CAFECF111AEEA61500600ED1 /* MackHubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAFECF1F1AEEA61500600ED1 /* Build configuration list for PBXNativeTarget "MackHubTests" */;
+			buildPhases = (
+				CAFECF0E1AEEA61500600ED1 /* Sources */,
+				CAFECF0F1AEEA61500600ED1 /* Frameworks */,
+				CAFECF101AEEA61500600ED1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAFECF141AEEA61500600ED1 /* PBXTargetDependency */,
+			);
+			name = MackHubTests;
+			productName = MackHubTests;
+			productReference = CAFECF121AEEA61500600ED1 /* MackHubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CAFECEF21AEEA61500600ED1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Rafael Fernandes de Oliveira Carvalho";
+				TargetAttributes = {
+					CAFECEF91AEEA61500600ED1 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					CAFECF111AEEA61500600ED1 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = CAFECEF91AEEA61500600ED1;
+					};
+				};
+			};
+			buildConfigurationList = CAFECEF51AEEA61500600ED1 /* Build configuration list for PBXProject "MackHub" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CAFECEF11AEEA61500600ED1;
+			productRefGroup = CAFECEFB1AEEA61500600ED1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CAFECEF91AEEA61500600ED1 /* MackHub */,
+				CAFECF111AEEA61500600ED1 /* MackHubTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CAFECEF81AEEA61500600ED1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAFECF081AEEA61500600ED1 /* Main.storyboard in Resources */,
+				CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */,
+				CAFECF0A1AEEA61500600ED1 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAFECF101AEEA61500600ED1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CAFECEF61AEEA61500600ED1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAFECF051AEEA61500600ED1 /* ViewController.swift in Sources */,
+				CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */,
+				CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAFECF0E1AEEA61500600ED1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAFECF191AEEA61500600ED1 /* MackHubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAFECF141AEEA61500600ED1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAFECEF91AEEA61500600ED1 /* MackHub */;
+			targetProxy = CAFECF131AEEA61500600ED1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CAFECF061AEEA61500600ED1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAFECF071AEEA61500600ED1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAFECF0C1AEEA61500600ED1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CAFECF1A1AEEA61500600ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CAFECF1B1AEEA61500600ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CAFECF1D1AEEA61500600ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MackHub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CAFECF1E1AEEA61500600ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MackHub/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CAFECF201AEEA61500600ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MackHubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MackHub.app/MackHub";
+			};
+			name = Debug;
+		};
+		CAFECF211AEEA61500600ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MackHubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MackHub.app/MackHub";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CAFECEF51AEEA61500600ED1 /* Build configuration list for PBXProject "MackHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAFECF1A1AEEA61500600ED1 /* Debug */,
+				CAFECF1B1AEEA61500600ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAFECF1C1AEEA61500600ED1 /* Build configuration list for PBXNativeTarget "MackHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAFECF1D1AEEA61500600ED1 /* Debug */,
+				CAFECF1E1AEEA61500600ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CAFECF1F1AEEA61500600ED1 /* Build configuration list for PBXNativeTarget "MackHubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAFECF201AEEA61500600ED1 /* Debug */,
+				CAFECF211AEEA61500600ED1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CAFECF021AEEA61500600ED1 /* MackHub.xcdatamodel */,
+			);
+			currentVersion = CAFECF021AEEA61500600ED1 /* MackHub.xcdatamodel */;
+			path = MackHub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CAFECEF21AEEA61500600ED1 /* Project object */;
+}
