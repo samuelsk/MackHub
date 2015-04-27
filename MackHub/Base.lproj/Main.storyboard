@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zw-6z-vtK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira seu login" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3zw-6z-vtK">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="208" id="EVe-ae-ysx"/>
@@ -38,78 +39,49 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLv-bV-ZcX">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Afg-bY-69I"/>
-                                    <constraint firstAttribute="width" constant="54" id="EJH-U9-OLu"/>
-                                </constraints>
-                                <state key="normal" title="ENVIAR">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Afg-bY-69I"/>
-                                        <exclude reference="EJH-U9-OLu"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Afg-bY-69I"/>
-                                        <include reference="EJH-U9-OLu"/>
-                                    </mask>
-                                </variation>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="KLv-bV-ZcX" secondAttribute="centerY" constant="-38" id="1bJ-iK-buf"/>
                             <constraint firstAttribute="centerY" secondItem="3zw-6z-vtK" secondAttribute="centerY" id="1wC-5p-7MQ"/>
-                            <constraint firstAttribute="centerX" secondItem="KLv-bV-ZcX" secondAttribute="centerX" id="52A-B5-hMd"/>
-                            <constraint firstItem="KLv-bV-ZcX" firstAttribute="top" secondItem="3zw-6z-vtK" secondAttribute="bottom" constant="8" id="EHN-JU-qYT"/>
                             <constraint firstAttribute="centerX" secondItem="3zw-6z-vtK" secondAttribute="centerX" id="rtY-oG-9Cn"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3zw-6z-vtK"/>
-                                <exclude reference="KLv-bV-ZcX"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1wC-5p-7MQ"/>
                                 <exclude reference="rtY-oG-9Cn"/>
-                                <exclude reference="1bJ-iK-buf"/>
-                                <exclude reference="52A-B5-hMd"/>
-                                <exclude reference="EHN-JU-qYT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="3zw-6z-vtK"/>
-                                <include reference="KLv-bV-ZcX"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="1wC-5p-7MQ"/>
                                 <include reference="rtY-oG-9Cn"/>
-                                <include reference="1bJ-iK-buf"/>
-                                <include reference="52A-B5-hMd"/>
-                                <include reference="EHN-JU-qYT"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="login" destination="3zw-6z-vtK" id="AfS-8E-jn7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="379.5" y="313.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="EWC-JA-zYe">
             <objects>
-                <viewController id="deE-xC-Ogm" sceneMemberID="viewController">
+                <viewController id="deE-xC-Ogm" customClass="TableViewController" customModule="MackHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M8I-nB-mnm"/>
                         <viewControllerLayoutGuide type="bottom" id="BP0-q2-8Sp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="apB-2F-96H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xT1-9i-brp">
@@ -138,10 +110,10 @@
                                 <exclude reference="xT1-9i-brp"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="TeP-9S-asH"/>
                                 <exclude reference="TmL-cr-Lju"/>
                                 <exclude reference="cc2-Ng-s0S"/>
                                 <exclude reference="tdg-dU-rlP"/>
-                                <exclude reference="TeP-9S-asH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -149,13 +121,16 @@
                                 <include reference="xT1-9i-brp"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="TeP-9S-asH"/>
                                 <include reference="TmL-cr-Lju"/>
                                 <include reference="cc2-Ng-s0S"/>
                                 <include reference="tdg-dU-rlP"/>
-                                <include reference="TeP-9S-asH"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="xT1-9i-brp" id="amY-UL-kLe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5C-4p-zRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,6 +14,7 @@
 		CAFECF0A1AEEA61500600ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF091AEEA61500600ED1 /* Images.xcassets */; };
 		CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */; };
 		CAFECF191AEEA61500600ED1 /* MackHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF181AEEA61500600ED1 /* MackHubTests.swift */; };
+		CAFECF251AEEABD800600ED1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF241AEEABD800600ED1 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		CAFECF121AEEA61500600ED1 /* MackHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFECF171AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECF181AEEA61500600ED1 /* MackHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackHubTests.swift; sourceTree = "<group>"; };
+		CAFECF241AEEABD800600ED1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		CAFECEFC1AEEA61500600ED1 /* MackHub */ = {
 			isa = PBXGroup;
 			children = (
+				CAFECF241AEEABD800600ED1 /* TableViewController.swift */,
 				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
 				CAFECF041AEEA61500600ED1 /* ViewController.swift */,
 				CAFECF061AEEA61500600ED1 /* Main.storyboard */,
@@ -218,6 +221,7 @@
 				CAFECF051AEEA61500600ED1 /* ViewController.swift in Sources */,
 				CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */,
 				CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */,
+				CAFECF251AEEABD800600ED1 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +419,7 @@
 				CAFECF1E1AEEA61500600ED1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAFECF1F1AEEA61500600ED1 /* Build configuration list for PBXNativeTarget "MackHubTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				CAFECF211AEEA61500600ED1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
