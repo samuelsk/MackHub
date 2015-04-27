@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E9880391AEEC730004059F4 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9880381AEEC730004059F4 /* PullRequest.swift */; };
+		7E98803B1AEECB72004059F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E98803A1AEECB72004059F4 /* CoreData.framework */; };
+		7E98803E1AEECD93004059F4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98803D1AEECD93004059F4 /* CoreDataManager.swift */; };
+		7E9880401AEECF4C004059F4 /* CDPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98803F1AEECF4C004059F4 /* CDPullRequest.swift */; };
+		7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */; };
 		CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */; };
 		CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */; };
-		CAFECF051AEEA61500600ED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF041AEEA61500600ED1 /* ViewController.swift */; };
+		CAFECF051AEEA61500600ED1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF041AEEA61500600ED1 /* LoginViewController.swift */; };
 		CAFECF081AEEA61500600ED1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF061AEEA61500600ED1 /* Main.storyboard */; };
 		CAFECF0A1AEEA61500600ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF091AEEA61500600ED1 /* Images.xcassets */; };
 		CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */; };
@@ -28,11 +33,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E9880381AEEC730004059F4 /* PullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
+		7E98803A1AEECB72004059F4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7E98803D1AEECD93004059F4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7E98803F1AEECF4C004059F4 /* CDPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPullRequest.swift; sourceTree = "<group>"; };
+		7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		CAFECEFA1AEEA61500600ED1 /* MackHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFECEFE1AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFECF021AEEA61500600ED1 /* MackHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MackHub.xcdatamodel; sourceTree = "<group>"; };
-		CAFECF041AEEA61500600ED1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAFECF041AEEA61500600ED1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CAFECF071AEEA61500600ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAFECF091AEEA61500600ED1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CAFECF0C1AEEA61500600ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -47,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E98803B1AEECB72004059F4 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +71,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E98803C1AEECB8C004059F4 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */,
+				7E98803D1AEECD93004059F4 /* CoreDataManager.swift */,
+				7E98803F1AEECF4C004059F4 /* CDPullRequest.swift */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		7EBA3CC91AEEAE11002A1E2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAFECF041AEEA61500600ED1 /* LoginViewController.swift */,
+				CAFECF241AEEABD800600ED1 /* TableViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7EBA3CCA1AEEAE98002A1E2B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */,
+				7E9880381AEEC730004059F4 /* PullRequest.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 		CAFECEF11AEEA61500600ED1 = {
 			isa = PBXGroup;
 			children = (
+				7E98803A1AEECB72004059F4 /* CoreData.framework */,
 				CAFECEFC1AEEA61500600ED1 /* MackHub */,
 				CAFECF151AEEA61500600ED1 /* MackHubTests */,
 				CAFECEFB1AEEA61500600ED1 /* Products */,
@@ -81,13 +121,12 @@
 		CAFECEFC1AEEA61500600ED1 /* MackHub */ = {
 			isa = PBXGroup;
 			children = (
-				CAFECF241AEEABD800600ED1 /* TableViewController.swift */,
+				7E98803C1AEECB8C004059F4 /* Core Data */,
+				7EBA3CCA1AEEAE98002A1E2B /* Entities */,
+				7EBA3CC91AEEAE11002A1E2B /* Views */,
 				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
-				CAFECF041AEEA61500600ED1 /* ViewController.swift */,
-				CAFECF061AEEA61500600ED1 /* Main.storyboard */,
 				CAFECF091AEEA61500600ED1 /* Images.xcassets */,
 				CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */,
-				CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */,
 				CAFECEFD1AEEA61500600ED1 /* Supporting Files */,
 			);
 			path = MackHub;
@@ -96,6 +135,7 @@
 		CAFECEFD1AEEA61500600ED1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CAFECF061AEEA61500600ED1 /* Main.storyboard */,
 				CAFECEFE1AEEA61500600ED1 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -218,10 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAFECF051AEEA61500600ED1 /* ViewController.swift in Sources */,
+				7E9880391AEEC730004059F4 /* PullRequest.swift in Sources */,
+				CAFECF051AEEA61500600ED1 /* LoginViewController.swift in Sources */,
 				CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */,
+				7E9880401AEECF4C004059F4 /* CDPullRequest.swift in Sources */,
 				CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */,
 				CAFECF251AEEABD800600ED1 /* TableViewController.swift in Sources */,
+				7E98803E1AEECD93004059F4 /* CoreDataManager.swift in Sources */,
+				7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
