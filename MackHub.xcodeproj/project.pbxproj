@@ -19,7 +19,7 @@
 		CAFECF0A1AEEA61500600ED1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF091AEEA61500600ED1 /* Images.xcassets */; };
 		CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */; };
 		CAFECF191AEEA61500600ED1 /* MackHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF181AEEA61500600ED1 /* MackHubTests.swift */; };
-		CAFECF251AEEABD800600ED1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF241AEEABD800600ED1 /* TableViewController.swift */; };
+		CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 		CAFECF121AEEA61500600ED1 /* MackHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFECF171AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECF181AEEA61500600ED1 /* MackHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackHubTests.swift; sourceTree = "<group>"; };
-		CAFECF241AEEABD800600ED1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +124,7 @@
 				7E98803C1AEECB8C004059F4 /* Core Data */,
 				7EBA3CCA1AEEAE98002A1E2B /* Entities */,
 				7EBA3CC91AEEAE11002A1E2B /* Views */,
+				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
 				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
 				CAFECF091AEEA61500600ED1 /* Images.xcassets */,
 				CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */,
@@ -266,6 +267,7 @@
 				CAFECF251AEEABD800600ED1 /* TableViewController.swift in Sources */,
 				7E98803E1AEECD93004059F4 /* CoreDataManager.swift in Sources */,
 				7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */,
+				CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
