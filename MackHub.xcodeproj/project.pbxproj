@@ -12,6 +12,7 @@
 		7E98803E1AEECD93004059F4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98803D1AEECD93004059F4 /* CoreDataManager.swift */; };
 		7E9880401AEECF4C004059F4 /* CDPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98803F1AEECF4C004059F4 /* CDPullRequest.swift */; };
 		7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */; };
+		CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */; };
 		CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */; };
 		CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */; };
 		CAFECF051AEEA61500600ED1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF041AEEA61500600ED1 /* LoginViewController.swift */; };
@@ -38,6 +39,7 @@
 		7E98803D1AEECD93004059F4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7E98803F1AEECF4C004059F4 /* CDPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPullRequest.swift; sourceTree = "<group>"; };
 		7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
+		CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
 		CAFECEFA1AEEA61500600ED1 /* MackHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFECEFE1AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				CAFECF041AEEA61500600ED1 /* LoginViewController.swift */,
-				CAFECF241AEEABD800600ED1 /* TableViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -125,6 +126,7 @@
 				7EBA3CCA1AEEAE98002A1E2B /* Entities */,
 				7EBA3CC91AEEAE11002A1E2B /* Views */,
 				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
+				CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */,
 				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
 				CAFECF091AEEA61500600ED1 /* Images.xcassets */,
 				CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */,
@@ -264,9 +266,9 @@
 				CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */,
 				7E9880401AEECF4C004059F4 /* CDPullRequest.swift in Sources */,
 				CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */,
-				CAFECF251AEEABD800600ED1 /* TableViewController.swift in Sources */,
 				7E98803E1AEECD93004059F4 /* CoreDataManager.swift in Sources */,
 				7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */,
+				CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */,
 				CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
