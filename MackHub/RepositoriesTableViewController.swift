@@ -10,9 +10,12 @@ import UIKit
 
 class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    var repos: NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.repos = loadRepos()
     }
 
     @IBOutlet weak var repositorySearchBar: UISearchBar! {
@@ -21,21 +24,57 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         }
     }
     
+    func loadRepos() -> NSArray{
+        //  Repositorios do usuário
+        var url = NSURL(string: "https://api.github.com/users/mackmobile/repos")
+        var jsonData = NSData(contentsOfURL: url!)
+        
+        var error: NSError? = NSError()
+        
+        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+        
+        return results
+        
+        //        // Repositorio selecionado
+        //        var url = NSURL(string: "https://api.github.com/repos/mackmobile/Contador")
+        //        var jsonData = NSData(contentsOfURL: url!)
+        //
+        //        var error: NSError? = NSError()
+        //
+        //        var results: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSDictionary
+        //        // Pull Requests
+        //        var url = NSURL(string: "https://api.github.com/repos/mackmobile/iDicionario/pulls?per_page=100")
+        //        var jsonData = NSData(contentsOfURL: url!)
+        //
+        //        var error: NSError? = NSError()
+        //
+        //        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+        //        for result in results{
+        //            var user = result["user"] as! NSDictionary
+        //            if ((user["login"] as! String) == login.text){
+        //                println("ETA CARAIO")
+        //            }
+        //        }
+    }
+    
     // MARK: - Table view data source
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 0
+        return 1
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.repos.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell:RepositoriesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! RepositoriesTableViewCell
+        
+        cell.repositoryName.text = self.repos[indexPath.row]["name"] as? String
+        
+        return cell
     }
     
     // MARK: SearchBar delegate

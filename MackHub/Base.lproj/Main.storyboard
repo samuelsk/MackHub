@@ -34,9 +34,6 @@
                                     <constraint firstAttribute="height" constant="104" id="Xz8-4g-I5j"/>
                                     <constraint firstAttribute="width" constant="208" id="h83-U7-KaW"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="96" y="273" width="208" height="104"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.15867660986262622" green="0.15867660986262622" blue="0.15867660986262622" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,11 +65,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lnl-fH-9Ib">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lnl-fH-9Ib">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="6zj-oq-tdP" customClass="RepositoriesTableViewCell" customModule="MackHub" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="6zj-oq-tdP" customClass="RepositoriesTableViewCell" customModule="MackHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6zj-oq-tdP" id="uHL-Dp-IPD">
@@ -86,9 +83,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="14" width="384" height="21"/>
-                                                    </variation>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AO-Bi-JXW">
                                                     <rect key="frame" x="562" y="61" width="30" height="30"/>
@@ -96,12 +90,9 @@
                                                         <constraint firstAttribute="width" constant="30" id="8IO-29-yWe"/>
                                                         <constraint firstAttribute="height" constant="30" id="N1t-8e-sFo"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="9E24C988-2C3E-4561-85CB-749CAEFCA240">
+                                                    <state key="normal" title="Button" image="09FF5152-E04A-442B-B8B2-009D0ACBB619">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="362" y="61" width="30" height="30"/>
-                                                    </variation>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="140" placeholderIntrinsicHeight="21" text="language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWY-MY-xvc">
                                                     <rect key="frame" x="414" y="65" width="140" height="21"/>
@@ -111,9 +102,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="214" y="65" width="140" height="21"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="updated" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCU-LB-VP0">
                                                     <rect key="frame" x="8" y="65" width="57" height="21"/>
@@ -123,9 +111,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="65" width="57" height="21"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -179,7 +164,6 @@
         <!--Navigation Controller-->
         <scene sceneID="LYl-1D-gGR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="htB-wt-91d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4qS-U1-g8Y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qC1-WH-Cep">
@@ -195,12 +179,13 @@
                         <segue destination="74U-DC-Fxg" kind="relationship" relationship="rootViewController" id="rLe-LW-xs4"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="htB-wt-91d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1164" y="313.49999999999994"/>
         </scene>
     </scenes>
     <resources>
-        <image name="9E24C988-2C3E-4561-85CB-749CAEFCA240" width="200" height="200">
+        <image name="09FF5152-E04A-442B-B8B2-009D0ACBB619" width="200" height="200">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
