@@ -21,7 +21,15 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     @IBOutlet weak var repositorySearchBar: UISearchBar! {
         didSet {
             repositorySearchBar.delegate = self
+<<<<<<< Updated upstream
             repositorySearchBar.keyboardAppearance = UIKeyboardAppearance.Dark;
+=======
+<<<<<<< HEAD
+            repositorySearchBar.keyboardAppearance = UIKeyboardAppearance.Dark
+=======
+            repositorySearchBar.keyboardAppearance = UIKeyboardAppearance.Dark;
+>>>>>>> origin/master
+>>>>>>> Stashed changes
         }
     }
     
