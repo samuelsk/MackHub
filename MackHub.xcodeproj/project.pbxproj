@@ -11,10 +11,10 @@
 		7E98803B1AEECB72004059F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E98803A1AEECB72004059F4 /* CoreData.framework */; };
 		7E9880401AEECF4C004059F4 /* PullRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98803F1AEECF4C004059F4 /* PullRequestManager.swift */; };
 		7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */; };
-		CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */; };
 		7ECF804D1AF1551500F02D73 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF804C1AF1551500F02D73 /* Repository.swift */; };
 		7ECF804F1AF1598000F02D73 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF804E1AF1598000F02D73 /* Label.swift */; };
 		7ECF80511AF161A600F02D73 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECF80501AF161A600F02D73 /* RepositoryManager.swift */; };
+		CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */; };
 		CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */; };
 		CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */; };
 		CAFECF051AEEA61500600ED1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF041AEEA61500600ED1 /* LoginViewController.swift */; };
@@ -40,10 +40,10 @@
 		7E98803A1AEECB72004059F4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7E98803F1AEECF4C004059F4 /* PullRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestManager.swift; sourceTree = "<group>"; };
 		7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
-		CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
 		7ECF804C1AF1551500F02D73 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		7ECF804E1AF1598000F02D73 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7ECF80501AF161A600F02D73 /* RepositoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewCell.swift; sourceTree = "<group>"; };
 		CAFECEFA1AEEA61500600ED1 /* MackHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFECEFE1AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,8 +90,9 @@
 		7EBA3CC91AEEAE11002A1E2B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
 				CAFECF041AEEA61500600ED1 /* LoginViewController.swift */,
+				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
+				CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -129,12 +130,9 @@
 		CAFECEFC1AEEA61500600ED1 /* MackHub */ = {
 			isa = PBXGroup;
 			children = (
-				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
 				7E98803C1AEECB8C004059F4 /* Core Data */,
 				7EBA3CCA1AEEAE98002A1E2B /* Entities */,
 				7EBA3CC91AEEAE11002A1E2B /* Views */,
-				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
-				CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */,
 				CAFECEFF1AEEA61500600ED1 /* AppDelegate.swift */,
 				CAFECF091AEEA61500600ED1 /* Images.xcassets */,
 				CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */,
@@ -276,7 +274,6 @@
 				7E9880401AEECF4C004059F4 /* PullRequestManager.swift in Sources */,
 				7ECF804F1AF1598000F02D73 /* Label.swift in Sources */,
 				CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */,
-				7E98803E1AEECD93004059F4 /* CoreDataManager.swift in Sources */,
 				7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */,
 				CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */,
 				CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */,
