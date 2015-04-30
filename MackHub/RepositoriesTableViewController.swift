@@ -25,7 +25,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
             repos = loadRepos()
             ghManager.isFirstTime = false;
         } else {
-            repos = RepositoryManager.
+            repos = RepositoryManager.sharedInstance.fetchRepositories();
         }
         
     }
@@ -51,7 +51,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         var error: NSError? = NSError()
         
-        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+        var results: Array<Repository> = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! Array<Repository>
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         return results
