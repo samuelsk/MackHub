@@ -33,7 +33,7 @@ class RepositoryManager {
         }
     }
     
-    func fetchRepositorys() -> Array<Repository> {
+    func fetchRepositories() -> Array<Repository> {
         let fetchRequest = NSFetchRequest(entityName: RepositoryManager.entityName);
         var error: NSError?
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];

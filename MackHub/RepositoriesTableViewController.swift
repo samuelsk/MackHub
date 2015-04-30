@@ -10,14 +10,24 @@ import UIKit
 
 class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var repos: NSArray!
+    lazy var repos: Array<Repository> = {
+        return RepositoryManager.sharedInstance.fetchRepositories();
+    }()
     
     @IBOutlet weak var tableRepos: UITableView!
+    
+    var ghManager = GitHubManager.sharedInstance;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.repos = loadRepos()
+        if (ghManager.isFirstTime) {
+            repos = loadRepos()
+            ghManager.isFirstTime = false;
+        } else {
+            repos = RepositoryManager.
+        }
+        
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
@@ -32,7 +42,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         }
     }
     
-    func loadRepos() -> NSArray{
+    func loadRepos() -> Array<Repository> {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         //  Repositorios do usuário

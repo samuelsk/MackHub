@@ -14,13 +14,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var login: UITextField!
     
-    var gitHubManager = GitHubManager.sharedInstance;
+    var ghManager = GitHubManager.sharedInstance;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if ((gitHubManager.login) != nil) {
-            print(gitHubManager.login);
+        if ((ghManager.login) != nil) {
+            print(ghManager.login);
         }
         
         login.delegate = self;
@@ -35,9 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             presentViewController(nameTooSmallAlert, animated: true, completion: nil);
         } else {
             //O nome de usuário inserido é guardado para futura referência.
-            var gitHubManager = GitHubManager.sharedInstance;
-//            gitHubManager.setLogin(textField.text);
-            gitHubManager.login = textField.text;
+            ghManager.login = textField.text;
             return true;
         }
         

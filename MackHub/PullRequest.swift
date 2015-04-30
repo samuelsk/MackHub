@@ -12,5 +12,11 @@ class PullRequest: NSManagedObject {
     
     @NSManaged var login: String
     @NSManaged var labels: NSSet
+    @NSManaged var repository: Repository
+    
+    func addPullRequest(pulRequest: PullRequest) {
+        var pullRequest = self.mutableSetValueForKey("pullRequests");
+        pullRequest.addObject(pullRequest);
+    }
     
 }
