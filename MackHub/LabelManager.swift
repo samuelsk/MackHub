@@ -1,27 +1,27 @@
 //
-//  PullRequestManager.swift
+//  LabelManager.swift
 //  MackHub
 //
-//  Created by Samuel Shin Kim on 27/04/15.
+//  Created by Rubens Gondek on 4/30/15.
 //  Copyright (c) 2015 Rafael Fernandes de Oliveira Carvalho. All rights reserved.
 //
 
 import CoreData
 import UIKit
 
-class PullRequestManager {
+class LabelManager {
     
-    static let sharedInstance = PullRequestManager();
-    static let entityName = "PullRequest";
+    static let sharedInstance = LabelManager();
+    static let entityName = "Label";
     
     lazy var managedContext: NSManagedObjectContext = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
         var context = appDelegate.managedObjectContext;
         return context!;
-    }()
+        }()
     
-    func newPullRequest() -> PullRequest {
-        return NSEntityDescription.insertNewObjectForEntityForName(PullRequestManager.entityName, inManagedObjectContext: managedContext) as! PullRequest;
+    func newLabel() -> Label {
+        return NSEntityDescription.insertNewObjectForEntityForName(LabelManager.entityName, inManagedObjectContext: managedContext) as! Label;
     }
     
     func save() {
@@ -33,17 +33,17 @@ class PullRequestManager {
         }
     }
     
-    func fetchPullRequests() -> Array<PullRequest> {
-        let fetchRequest = NSFetchRequest(entityName: PullRequestManager.entityName);
+    func fetchLabels() -> Array<Label> {
+        let fetchRequest = NSFetchRequest(entityName: LabelManager.entityName);
         var error: NSError?
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
         
-        if let results = fetchedResults as? [PullRequest] {
+        if let results = fetchedResults as? [Label] {
             return results;
         } else {
             println("Error while fetching: \(error), \(error!.userInfo)");
         }
         
-        return Array<PullRequest>();
+        return Array<Label>();
     }
 }

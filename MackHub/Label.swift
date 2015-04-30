@@ -12,5 +12,5 @@ class Label: NSManagedObject {
     
     @NSManaged var name: String;
     @NSManaged var color: String;
-    
+    @NSManaged var pullRequest: PullRequest;
 }

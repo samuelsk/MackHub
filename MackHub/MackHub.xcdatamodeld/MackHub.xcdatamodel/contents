@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Label" representedClassName="Label" syncable="YES">
+    <entity name="Label" representedClassName="MackHub.Label" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pullRequest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PullRequest" inverseName="labels" inverseEntity="PullRequest" syncable="YES"/>
     </entity>
-    <entity name="PullRequest" representedClassName="PullRequest" syncable="YES">
+    <entity name="PullRequest" representedClassName="MackHub.PullRequest" syncable="YES">
         <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="labels" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Label" inverseName="pullRequest" inverseEntity="Label" syncable="YES"/>
+        <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Label" inverseName="pullRequest" inverseEntity="Label" syncable="YES"/>
         <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="pullRequest" inverseEntity="Repository" syncable="YES"/>
     </entity>
     <entity name="Repository" representedClassName="MackHub.Repository" syncable="YES">
