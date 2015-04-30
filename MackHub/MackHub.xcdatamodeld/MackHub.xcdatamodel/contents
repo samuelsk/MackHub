@@ -10,7 +10,7 @@
         <relationship name="labels" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Label" inverseName="pullRequest" inverseEntity="Label" syncable="YES"/>
         <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="pullRequest" inverseEntity="Repository" syncable="YES"/>
     </entity>
-    <entity name="Repository" representedClassName="Repository" syncable="YES">
+    <entity name="Repository" representedClassName="MackHub.Repository" syncable="YES">
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,8 +18,8 @@
         <relationship name="pullRequest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PullRequest" inverseName="repository" inverseEntity="PullRequest" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Label" positionX="279" positionY="9" width="128" height="88"/>
         <element name="PullRequest" positionX="99" positionY="9" width="128" height="88"/>
         <element name="Repository" positionX="-81" positionY="9" width="128" height="118"/>
-        <element name="Label" positionX="279" positionY="9" width="128" height="88"/>
     </elements>
 </model>

@@ -14,8 +14,6 @@ class GitHubManager {
     
     private let userDefaults = NSUserDefaults.standardUserDefaults();
     
-    var isFirstTime = true;
-    
     var login: String! {
         willSet {
             userDefaults.setValue(login, forKey: "login");
@@ -28,9 +26,6 @@ class GitHubManager {
     private init() {
         if let login = userDefaults.objectForKey("login") as? String {
             self.login = login;
-        }
-        if let isFirstTime = userDefaults.objectForKey("isFirstTime") as? Bool {
-            self.isFirstTime = isFirstTime;
         }
     }
     

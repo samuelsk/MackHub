@@ -21,13 +21,8 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (ghManager.isFirstTime) {
-            repos = loadRepos()
-            ghManager.isFirstTime = false;
-        } else {
-            repos = RepositoryManager.sharedInstance.fetchRepositories();
-        }
-        
+        loadRepos()
+        repos = RepositoryManager.sharedInstance.fetchRepositories();
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
@@ -42,28 +37,40 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         }
     }
     
-    func loadRepos() -> Array<Repository> {
+    func loadRepos() {
+        print("HELLO");
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         //  Repositorios do usuário
-        var url = NSURL(string: "https://api.github.com/users/mackmobile/repos")
+        var url = NSURL(string: "https://api.github.com/users/mackmobile/repos?client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
         var jsonData = NSData(contentsOfURL: url!)
         
         var error: NSError? = NSError()
-        
-        var results: Array<Repository> = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! Array<Repository>
+//        
+        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        return results
         
-        //        // Repositorio selecionado
-        //        var url = NSURL(string: "https://api.github.com/repos/mackmobile/Contador")
-        //        var jsonData = NSData(contentsOfURL: url!)
-        //
-        //        var error: NSError? = NSError()
-        //
-        //        var results: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSDictionary
-        //        
+        for result in results {
+            var repo = RepositoryManager.sharedInstance.newRepository();
+            repo.name = result["name"] as! String;
+            repo.info = result["description"] as! String;
+            repo.lastUpdate = stringToDate(result["updated_at"] as! String);
+            repo.progLanguage = result["language"] as! String;
+            RepositoryManager.sharedInstance.save();
+        }
+    }
+    
+    func stringToDate(str: String) -> NSDate {
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+        return dateFormatter.dateFromString(str)!;
+    }
+    
+    func dateToString(date: NSDate) -> String {
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "dd/MM";
+        return dateFormatter.stringFromDate(date);
     }
     
     // MARK: - Table view data source
@@ -81,9 +88,10 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:RepositoriesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! RepositoriesTableViewCell
         
-        cell.repositoryName.text = self.repos[indexPath.row]["name"] as? String
-        cell.updatedAt.text = self.repos[indexPath.row]["updated_at"] as? String
-        cell.language.text = self.repos[indexPath.row]["language"] as? String
+        let repo = self.repos[indexPath.row];
+        cell.repositoryName.text = repo.name
+        cell.updatedAt.text = "Updated: \(dateToString(repo.lastUpdate))";
+        cell.language.text = repo.progLanguage;
         
         return cell
     }
