@@ -12,6 +12,8 @@ class RepositoriesTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var repositoryName: UILabel!
+    @IBOutlet weak var updatedAt: UILabel!
+    @IBOutlet weak var language: UILabel!
     
     
 

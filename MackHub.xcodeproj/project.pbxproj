@@ -23,6 +23,7 @@
 		CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */; };
 		CAFECF191AEEA61500600ED1 /* MackHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF181AEEA61500600ED1 /* MackHubTests.swift */; };
 		CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */; };
+		D5785E7A1AF265B70043EDE3 /* LabelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5785E791AF265B70043EDE3 /* LabelsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		CAFECF171AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECF181AEEA61500600ED1 /* MackHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackHubTests.swift; sourceTree = "<group>"; };
 		CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		D5785E791AF265B70043EDE3 /* LabelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				CAFECF041AEEA61500600ED1 /* LoginViewController.swift */,
 				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
+				D5785E791AF265B70043EDE3 /* LabelsViewController.swift */,
 				CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */,
 			);
 			name = Views;
@@ -270,6 +273,7 @@
 				7E9880391AEEC730004059F4 /* PullRequest.swift in Sources */,
 				CAFECF051AEEA61500600ED1 /* LoginViewController.swift in Sources */,
 				CAFECF001AEEA61500600ED1 /* AppDelegate.swift in Sources */,
+				D5785E7A1AF265B70043EDE3 /* LabelsViewController.swift in Sources */,
 				7ECF804D1AF1551500F02D73 /* Repository.swift in Sources */,
 				7E9880401AEECF4C004059F4 /* PullRequestManager.swift in Sources */,
 				7ECF804F1AF1598000F02D73 /* Label.swift in Sources */,
