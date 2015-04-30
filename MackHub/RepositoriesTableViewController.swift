@@ -85,16 +85,6 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
 //    }
 
     /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
@@ -129,14 +119,20 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowDetail" {
+            let lvc: LabelsViewController = segue.destinationViewController as! LabelsViewController
+            lvc.selectedRepo = "iDicionario"
+            segue.perform()
+        }
     }
-    */
+
 
 }
