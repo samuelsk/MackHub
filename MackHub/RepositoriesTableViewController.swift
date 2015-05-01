@@ -14,6 +14,8 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         return RepositoryManager.sharedInstance.fetchRepositories();
     }()
     
+        var selectedCell = -1
+    
     @IBOutlet weak var tableRepos: UITableView!
     
     var ghManager = GitHubManager.sharedInstance;
@@ -96,9 +98,66 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("ShowDetail", sender: indexPath.row)
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        performSegueWithIdentifier("ShowDetail", sender: indexPath.row)
+//    }
+    
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        var should = false
+        if selectedCell == indexPath.row {
+            selectedCell = -1
+        } else {
+            should = true
+            selectedCell = indexPath.row
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
+        return true
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row != selectedCell {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == selectedCell {
+            return 100
+        } else {
+            return 50
+        }
+    }
+    
+    var blackView = UIView()
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        
+        blackView = UIView(frame: CGRect(x: 0, y: tableRepos.frame.origin.y, width: 2048, height: self.view.frame.size.height))
+        blackView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
+        blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissSearchBarFromTouch:"))
+        self.view.addSubview(blackView)
+        
+        return true
+    }
+    
+    func dismissSearchBarFromTouch(tapGesture: UIGestureRecognizer) {
+        blackView.removeFromSuperview()
+        repositorySearchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        blackView.removeFromSuperview()
+        repositorySearchBar.resignFirstResponder()
+    }
+    
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showDetail", sender: nil)
+    }
+    
+    
+    
     
     // MARK: - Navigation
 
@@ -113,6 +172,8 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
             segue.perform()
         }
     }
+    
+    
 
 
 }

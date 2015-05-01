@@ -15,6 +15,18 @@ class RepositoriesTableViewCell: UITableViewCell {
     @IBOutlet weak var updatedAt: UILabel!
     @IBOutlet weak var language: UILabel!
     
+    var cellIsSelected = false {
+        didSet {
+            if !cellIsSelected {
+                updatedAt.hidden = true
+                language.hidden = true
+            } else {
+                updatedAt.hidden = false
+                language.hidden = false
+            }
+        }
+    }
+    
     
 
 //    override func awakeFromNib() {
