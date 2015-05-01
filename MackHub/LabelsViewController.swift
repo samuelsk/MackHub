@@ -10,6 +10,8 @@ import UIKit
 
 class LabelsViewController: UIViewController {
 
+    let nCenter = NSNotificationCenter.defaultCenter()
+    
     var selectedRepo: Repository!
     
 //    = {
@@ -21,7 +23,8 @@ class LabelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadLabels(selectedRepo)
+        
+        nCenter.addObserver(self, selector: Selector(loadLabels(selectedRepo)), name: "repository", object: selectedRepo)
         // Do any additional setup after loading the view.
     }
 
