@@ -14,25 +14,18 @@ class RepositoryManager {
     static let sharedInstance = RepositoryManager();
     static let entityName = "Repository";
     
-    lazy var managedContext: NSManagedObjectContext = {
+    lazy var managedObjectContext: NSManagedObjectContext = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        var context = appDelegate.managedObjectContext;
-        return context!;
+        return appDelegate.managedObjectContext!
         }()
     
-//    lazy var storeCoordinator: NSPersistentStoreCoordinator = {
-//        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-//        var store = appDelegate.persistentStoreCoordinator;
-//        return store!;
-//        }()
-    
     func newRepository() -> Repository {
-        return NSEntityDescription.insertNewObjectForEntityForName(RepositoryManager.entityName, inManagedObjectContext: managedContext) as! Repository;
+        return NSEntityDescription.insertNewObjectForEntityForName(RepositoryManager.entityName, inManagedObjectContext: managedObjectContext) as! Repository;
     }
     
     func save() {
         var error: NSError?;
-        managedContext.save(&error);
+        managedObjectContext.save(&error);
         
         if let e = error {
             println("Error while saving: \(error), \(error!.userInfo)");
@@ -42,7 +35,7 @@ class RepositoryManager {
     func fetchRepositories() -> Array<Repository> {
         let fetchRequest = NSFetchRequest(entityName: RepositoryManager.entityName);
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
         
         if let results = fetchedResults as? [Repository] {
             return results;
@@ -52,16 +45,5 @@ class RepositoryManager {
         
         return Array<Repository>();
     }
-    
-//    func removeRepositories() {
-//        managedContext.reset();
-//        var error: NSError?
-//        for store in storeCoordinator.persistentStores {
-//            var didRemove = storeCoordinator.removePersistentStore(store as! NSPersistentStore, error: &error);
-//            if (!didRemove) {
-//                println("Error while removing persistent store: \(error), \(error!.userInfo)");
-//            }
-//        }
-//    }
-    
+        
 }

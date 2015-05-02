@@ -33,6 +33,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
+        CoreDataManager.sharedInstance.resetApplicationModel();
         ghManager.loadRepos()
         self.tableRepos.reloadData()
     }
@@ -61,7 +62,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         let repo = self.repos[indexPath.row];
         cell.repositoryName.text = repo.name
-        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.lastUpdate))";
+        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.updatedAt))";
         cell.language.text = repo.progLanguage;
         
         cell.updatedAt.alpha = 0
@@ -77,10 +78,18 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
+        
         var should = false
         if selectedCell == indexPath.row {
+            cell.hideInfo()
             selectedCell = -1
         } else {
+            if let previous = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedCell, inSection: indexPath.section)) as? RepositoriesTableViewCell {
+                previous.hideInfo()
+            }
+            cell.showInfo()
             should = true
             selectedCell = indexPath.row
         }

@@ -29,6 +29,27 @@ class RepositoriesTableViewCell: UITableViewCell {
         }
     }
     
+    func hideInfo() {
+        updatedAt.hidden = true
+        language.hidden = true
+        
+        self.contentView.setNeedsDisplay()
+        
+    }
+    
+    func showInfo() {
+        updatedAt.alpha = CGFloat(0.0)
+        language.alpha = CGFloat(0.0)
+        
+        updatedAt.hidden = false
+        language.hidden = false
+        
+        UIView.animateWithDuration(0.1, delay: 0.1, options: .CurveLinear, animations: { () -> Void in
+            self.updatedAt.alpha = CGFloat(1.0)
+            self.language.alpha = CGFloat(1.0)
+        }, completion: nil)
+    }
+    
     
 
 //    override func awakeFromNib() {

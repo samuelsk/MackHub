@@ -14,19 +14,18 @@ class LabelManager {
     static let sharedInstance = LabelManager();
     static let entityName = "Label";
     
-    lazy var managedContext: NSManagedObjectContext = {
+    lazy var managedObjectContext: NSManagedObjectContext = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        var context = appDelegate.managedObjectContext;
-        return context!;
+        return appDelegate.managedObjectContext!
         }()
     
     func newLabel() -> Label {
-        return NSEntityDescription.insertNewObjectForEntityForName(LabelManager.entityName, inManagedObjectContext: managedContext) as! Label;
+        return NSEntityDescription.insertNewObjectForEntityForName(LabelManager.entityName, inManagedObjectContext: managedObjectContext) as! Label;
     }
     
     func save() {
         var error: NSError?;
-        managedContext.save(&error);
+        managedObjectContext.save(&error);
         
         if let e = error {
             println("Error while saving: \(error), \(error!.userInfo)");
@@ -36,7 +35,7 @@ class LabelManager {
     func fetchLabels() -> Array<Label> {
         let fetchRequest = NSFetchRequest(entityName: LabelManager.entityName);
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
         
         if let results = fetchedResults as? [Label] {
             return results;
