@@ -18,13 +18,11 @@ class RepositoriesTableViewCell: UITableViewCell {
     var cellIsSelected = false {
         didSet {
             if !cellIsSelected {
-                updatedAt.alpha = 0
-                language.alpha = 0
+                updatedAt.hidden = true
+                language.hidden = true
             } else {
-                UIView.animateWithDuration(0.8, animations: { () -> Void in
-                    self.updatedAt.alpha = 1
-                    self.language.alpha = 1
-                })
+                updatedAt.hidden = false
+                language.hidden = false
             }
         }
     }

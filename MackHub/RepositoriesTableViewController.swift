@@ -33,7 +33,6 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
-        CoreDataManager.sharedInstance.resetApplicationModel();
         ghManager.loadRepos()
         self.tableRepos.reloadData()
     }
@@ -65,17 +64,14 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.updatedAt))";
         cell.language.text = repo.progLanguage;
         
-        cell.updatedAt.alpha = 0
-        cell.language.alpha = 0
+        cell.hideInfo()
         
         return cell
     }
     
-    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        nCenter.postNotificationName(nKey, object: repos[indexPath.row])
-        
-        self.navigationController?.pushViewController(LabelsViewController(), animated: true)
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        performSegueWithIdentifier("ShowDetail", sender: indexPath.row)
+//    }
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         
@@ -100,13 +96,9 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
-        cell.cellIsSelected = true
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
-        cell.cellIsSelected = false
+        if indexPath.row != selectedCell {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -139,12 +131,28 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         repositorySearchBar.resignFirstResponder()
     }
     
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        
+        nCenter.postNotificationName(nKey, object: nil, userInfo: ["repo":repos[indexPath.row]])
+        
+        let vc = LabelsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+//        performSegueWithIdentifier("ShowDetail", sender: nil)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowDetail" {
+            let lvc: LabelsViewController = segue.destinationViewController as! LabelsViewController
+            lvc.selectedRepo = repos[2]
+            segue.perform()
+        }
     }
     
     
