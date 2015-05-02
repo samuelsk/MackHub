@@ -64,15 +64,11 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.lastUpdate))";
         cell.language.text = repo.progLanguage;
         
-        cell.updatedAt.hidden = true
-        cell.language.hidden = true
+        cell.updatedAt.alpha = 0
+        cell.language.alpha = 0
         
         return cell
     }
-    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        performSegueWithIdentifier("ShowDetail", sender: indexPath.row)
-//    }
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         nCenter.postNotificationName(nKey, object: repos[indexPath.row])
@@ -95,17 +91,13 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row != selectedCell {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
-            cell.updatedAt.hidden = true
-            cell.language.hidden = true
-        }
-        else{
-            var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
-            cell.updatedAt.hidden = false
-            cell.language.hidden = false
-        }
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
+        cell.cellIsSelected = true
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
+        cell.cellIsSelected = false
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

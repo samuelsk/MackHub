@@ -22,14 +22,12 @@ class LabelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (pullReq == nil) {
+            ghManager.loadLabels(selectedRepo)
+        }
         
-        nCenter.addObserver(self, selector: Selector(loadLabels(selectedRepo)), name: "repository", object: selectedRepo)
+//        nCenter.addObserver(self, selector: Selector(ghManager.loadLabels(selectedRepo)), name: "repository", object: selectedRepo)
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
