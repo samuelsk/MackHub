@@ -23,12 +23,14 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadRepos()
+        if (repos.isEmpty) {
+            ghManager.loadRepos()
+        }
         repos = RepositoryManager.sharedInstance.fetchRepositories();
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
-        loadRepos()
+        ghManager.loadRepos()
         self.tableRepos.reloadData()
     }
     
@@ -37,42 +39,6 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
             repositorySearchBar.delegate = self
             repositorySearchBar.keyboardAppearance = UIKeyboardAppearance.Dark;
         }
-    }
-    
-    func loadRepos() {
-        print("HELLO");
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        //  Repositorios do usuário
-        var url = NSURL(string: "https://api.github.com/users/mackmobile/repos?client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
-        var jsonData = NSData(contentsOfURL: url!)
-        
-        var error: NSError? = NSError()
-//        
-        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        
-        for result in results {
-            var repo = RepositoryManager.sharedInstance.newRepository();
-            repo.name = result["name"] as! String;
-            repo.info = result["description"] as! String;
-            repo.lastUpdate = stringToDate(result["updated_at"] as! String);
-            repo.progLanguage = result["language"] as! String;
-            RepositoryManager.sharedInstance.save();
-        }
-    }
-    
-    func stringToDate(str: String) -> NSDate {
-        let dateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-        return dateFormatter.dateFromString(str)!;
-    }
-    
-    func dateToString(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = "dd/MM";
-        return dateFormatter.stringFromDate(date);
     }
     
     // MARK: - Table view data source
@@ -92,7 +58,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         let repo = self.repos[indexPath.row];
         cell.repositoryName.text = repo.name
-        cell.updatedAt.text = "Updated: \(dateToString(repo.lastUpdate))";
+        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.lastUpdate))";
         cell.language.text = repo.progLanguage;
         
         return cell

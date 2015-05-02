@@ -10,13 +10,8 @@ import CoreData
 
 class PullRequest: NSManagedObject {
     
-    @NSManaged var login: String
+    @NSManaged var repoName: String
     @NSManaged var labels: NSSet
     @NSManaged var repository: Repository
-    
-    func addLabel(lbl: Label) {
-        var label = self.mutableSetValueForKey("labels");
-        label.addObject(lbl);
-    }
     
 }
