@@ -20,6 +20,12 @@ class RepositoryManager {
         return context!;
         }()
     
+//    lazy var storeCoordinator: NSPersistentStoreCoordinator = {
+//        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
+//        var store = appDelegate.persistentStoreCoordinator;
+//        return store!;
+//        }()
+    
     func newRepository() -> Repository {
         return NSEntityDescription.insertNewObjectForEntityForName(RepositoryManager.entityName, inManagedObjectContext: managedContext) as! Repository;
     }
@@ -46,5 +52,16 @@ class RepositoryManager {
         
         return Array<Repository>();
     }
+    
+//    func removeRepositories() {
+//        managedContext.reset();
+//        var error: NSError?
+//        for store in storeCoordinator.persistentStores {
+//            var didRemove = storeCoordinator.removePersistentStore(store as! NSPersistentStore, error: &error);
+//            if (!didRemove) {
+//                println("Error while removing persistent store: \(error), \(error!.userInfo)");
+//            }
+//        }
+//    }
     
 }
