@@ -12,7 +12,7 @@ class Repository: NSManagedObject {
     
     @NSManaged var name: String;
     @NSManaged var info: String;
-    @NSManaged var lastUpdate: NSDate;
+    @NSManaged var updatedAt: NSDate;
     @NSManaged var progLanguage: String;
     
 }

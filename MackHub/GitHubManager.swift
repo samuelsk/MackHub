@@ -46,7 +46,7 @@ class GitHubManager {
             var repo = RepositoryManager.sharedInstance.newRepository();
             repo.name = result["name"] as! String;
             repo.info = result["description"] as! String;
-            repo.lastUpdate = stringToDate(result["updated_at"] as! String);
+            repo.updatedAt = stringToDate(result["updated_at"] as! String);
             repo.progLanguage = result["language"] as! String;
             RepositoryManager.sharedInstance.save();
         }
@@ -67,6 +67,7 @@ class GitHubManager {
                 // Salvar pull request
                 var pullReq = PullRequestManager.sharedInstance.newPullRequest()
                 pullReq.repoName = repo.name
+                pullReq.updatedAt = stringToDate(result["updated_at"] as! String);
                 pullReq.repository = repo
                 for lbl in result["labels"] as! NSArray{
                     var l = LabelManager.sharedInstance.newLabel()

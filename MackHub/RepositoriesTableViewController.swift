@@ -30,6 +30,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
+        CoreDataManager.sharedInstance.resetApplicationModel();
         ghManager.loadRepos()
         self.tableRepos.reloadData()
     }
@@ -58,7 +59,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         let repo = self.repos[indexPath.row];
         cell.repositoryName.text = repo.name
-        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.lastUpdate))";
+        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.updatedAt))";
         cell.language.text = repo.progLanguage;
         
         return cell

@@ -14,19 +14,18 @@ class PullRequestManager {
     static let sharedInstance = PullRequestManager();
     static let entityName = "PullRequest";
     
-    lazy var managedContext: NSManagedObjectContext = {
+    lazy var managedObjectContext: NSManagedObjectContext = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        var context = appDelegate.managedObjectContext;
-        return context!;
+        return appDelegate.managedObjectContext!
     }()
     
     func newPullRequest() -> PullRequest {
-        return NSEntityDescription.insertNewObjectForEntityForName(PullRequestManager.entityName, inManagedObjectContext: managedContext) as! PullRequest;
+        return NSEntityDescription.insertNewObjectForEntityForName(PullRequestManager.entityName, inManagedObjectContext: managedObjectContext) as! PullRequest;
     }
     
     func save() {
         var error: NSError?;
-        managedContext.save(&error);
+        managedObjectContext.save(&error);
         
         if let e = error {
             println("Error while saving: \(error), \(error!.userInfo)");
@@ -36,7 +35,7 @@ class PullRequestManager {
     func fetchPullRequests() -> Array<PullRequest> {
         let fetchRequest = NSFetchRequest(entityName: PullRequestManager.entityName);
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
         
         if let results = fetchedResults as? [PullRequest] {
             return results;
@@ -51,7 +50,7 @@ class PullRequestManager {
         let fetchRequest = NSFetchRequest(entityName: PullRequestManager.entityName);
         fetchRequest.predicate = NSPredicate(format: "repoName == %@", "iDicionario");
         var error: NSError?
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
 
         if let results = fetchedResults as? [PullRequest] {
             return results;

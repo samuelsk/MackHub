@@ -11,6 +11,7 @@ import CoreData
 class PullRequest: NSManagedObject {
     
     @NSManaged var repoName: String
+    @NSManaged var updatedAt: NSDate
     @NSManaged var labels: NSSet
     @NSManaged var repository: Repository
     
