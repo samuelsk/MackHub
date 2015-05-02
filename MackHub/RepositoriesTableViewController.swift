@@ -62,6 +62,8 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.updatedAt))";
         cell.language.text = repo.progLanguage;
         
+        cell.hideInfo()
+        
         return cell
     }
     
@@ -70,10 +72,18 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
 //    }
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RepositoriesTableViewCell
+        
         var should = false
         if selectedCell == indexPath.row {
+            cell.hideInfo()
             selectedCell = -1
         } else {
+            if let previous = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedCell, inSection: indexPath.section)) as? RepositoriesTableViewCell {
+                previous.hideInfo()
+            }
+            cell.showInfo()
             should = true
             selectedCell = indexPath.row
         }
@@ -120,7 +130,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("showDetail", sender: nil)
+        performSegueWithIdentifier("ShowDetail", sender: nil)
     }
     
     

@@ -26,13 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MackHub/RepositoriesTableViewController.swift"
-            timestampString = "452122378.041402"
+            timestampString = "452282881.253203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "tableView(_:accessoryButtonTappedForRowWithIndexPath:)"
-            landmarkType = "5">
+            startingLineNumber = "165"
+            endingLineNumber = "165">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
