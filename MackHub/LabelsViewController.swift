@@ -19,9 +19,7 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var labels: [Label] = []
     
-    lazy var pullReq = {
-        return PullRequestManager.sharedInstance.fetchPullRequest().first;
-    }()
+    var pullReq: PullRequest!
     
     @IBOutlet weak var repoInfo: UILabel!
     
@@ -41,9 +39,11 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let uInfo = notif.userInfo as! [String:Repository]
         selectedRepo = uInfo["repo"]
         
+        pullReq = PullRequestManager.sharedInstance.fetchPullRequest(selectedRepo.name).first;
+        
         if (pullReq == nil) {
             ghManager.loadLabels(selectedRepo)
-            pullReq = PullRequestManager.sharedInstance.fetchPullRequest().first;
+            pullReq = PullRequestManager.sharedInstance.fetchPullRequest(selectedRepo.name).first;
             labels = NSArray(objects: pullReq!.labels.allObjects) as! [Label]
         }
         

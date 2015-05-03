@@ -59,9 +59,19 @@ class GitHubManager {
         for result in results {
             var repo = RepositoryManager.sharedInstance.newRepository();
             repo.name = result["name"] as! String;
-            repo.info = result["description"] as! String;
+            var arg: AnyObject? = result["description"];
+            if (arg?.isEqual(NSNull()) == nil) {
+                repo.info = result["description"] as! String;
+            } else {
+                repo.info = "";
+            }
             repo.updatedAt = stringToDate(result["updated_at"] as! String);
-            repo.progLanguage = result["language"] as! String;
+            arg = result["language"];
+            if arg?.isEqual(NSNull()) == nil {
+                repo.progLanguage = result["language"] as! String;
+            } else {
+                repo.progLanguage = "Language unknown";
+            }
             RepositoryManager.sharedInstance.save();
         }
     }
@@ -77,7 +87,7 @@ class GitHubManager {
         
         for result in results{
             var user = result["user"] as! NSDictionary
-            if ((user["login"] as! String) == "RGondek"){
+            if ((user["login"] as! String) == login){
                 // Salvar pull request
                 var pullReq = PullRequestManager.sharedInstance.newPullRequest()
                 pullReq.repoName = repo.name
@@ -91,6 +101,7 @@ class GitHubManager {
                     LabelManager.sharedInstance.save()
                 }
                 PullRequestManager.sharedInstance.save()
+                break;
             }
         }
     }
@@ -114,6 +125,46 @@ class GitHubManager {
         
         println("\(counter) Checking updates...");
         counter++;
+        
+        var pullRequests = PullRequestManager.sharedInstance.fetchPullRequests();
+        
+        for pullReq in pullRequests {
+            var url = NSURL(string: "https://api.github.com/repos/mackmobile/\(pullReq.repoName)/issues?per_page=100&client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
+            var jsonData = NSData(contentsOfURL: url!)
+            var error: NSError?
+            var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+            
+            for result in results{
+                var user = result["user"] as! NSDictionary
+                if ((user["login"] as! String) == login){
+                    
+                    if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
+                        
+                        println("\(counter) Update found in \(pullReq.repoName)!");
+                        
+//                        for lbl in result["labels"] as! NSArray{
+//                            var l = LabelManager.sharedInstance.newLabel()
+//                            l.color = lbl["color"] as! String
+//                            l.name = lbl["name"] as! String
+//                            l.pullRequest = pullReq
+//                            LabelManager.sharedInstance.save()
+//                        }
+                        
+                        var labels: Array<Label>!
+                        for lbl in result["labels"] as! NSArray{
+                            var l = LabelManager.sharedInstance.newLabel();
+                            l.color = lbl["color"] as! String;
+                            l.name = lbl["name"] as! String;
+                            l.pullRequest = pullReq;
+                            labels.append(l);
+                        }
+                        pullReq.labels = NSSet(array: labels);
+                        PullRequestManager.sharedInstance.save()
+                    }
+                }
+            }
+        }
+        
         
     }
     

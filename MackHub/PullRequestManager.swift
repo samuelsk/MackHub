@@ -46,9 +46,9 @@ class PullRequestManager {
         return Array<PullRequest>();
     }
     
-    func fetchPullRequest() -> Array<PullRequest> {
+    func fetchPullRequest(repoName: String) -> Array<PullRequest> {
         let fetchRequest = NSFetchRequest(entityName: PullRequestManager.entityName);
-        fetchRequest.predicate = NSPredicate(format: "repoName == %@", "iDicionario");
+        fetchRequest.predicate = NSPredicate(format: "repoName == %@", repoName);
         var error: NSError?
         let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
 

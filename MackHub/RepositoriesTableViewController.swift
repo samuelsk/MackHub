@@ -14,9 +14,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     let pKey = "Pull"
     let nCenter = NSNotificationCenter.defaultCenter()
     
-    lazy var repos: Array<Repository> = {
-        return RepositoryManager.sharedInstance.fetchRepositories();
-    }()
+    lazy var repos = RepositoryManager.sharedInstance.fetchRepositories();
     
     var selectedCell = -1
     
@@ -26,6 +24,9 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Remover linha abaixo
+        GitHubManager.sharedInstance.login = "RGondek";
         
         if (repos.isEmpty) {
             ghManager.loadRepos()
