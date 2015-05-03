@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-//        ghManager.checkForUpdatesWithInterval(1);
+        ghManager.checkForUpdatesWithInterval(60);
         
         return true
     }
@@ -31,9 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        application.beginBackgroundTaskWithExpirationHandler { () -> Void in
-            self.ghManager.checkForUpdatesWithInterval(10);
-        }
+        ghManager.checkForUpdatesWithInterval(50);
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -42,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//        ghManager.checkForUpdatesWithInterval(1);
+        ghManager.checkForUpdatesWithInterval(60);
     }
 
     func applicationWillTerminate(application: UIApplication) {
