@@ -170,14 +170,9 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     
     @IBAction func exit(sender: UIBarButtonItem) {
-        
         let alerta: UIAlertController = UIAlertController(title: "Tem certeza?", message: "", preferredStyle: .Alert)
         
-        let acao1: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { action -> Void in
-            println("Cancelar")
-            
-        }
-        
+        let acao1: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default, handler: nil)
         alerta.addAction(acao1)
         
         let acao2: UIAlertAction = UIAlertAction(title: "Sair", style: .Default) { action -> Void in

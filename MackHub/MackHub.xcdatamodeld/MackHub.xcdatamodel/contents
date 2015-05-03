@@ -6,7 +6,7 @@
         <relationship name="pullRequest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PullRequest" inverseName="labels" inverseEntity="PullRequest" syncable="YES"/>
     </entity>
     <entity name="PullRequest" representedClassName="MackHub.PullRequest" syncable="YES">
-        <attribute name="repoName" optional="YES" attributeType="String" defaultValueString="Test" syncable="YES"/>
+        <attribute name="repoName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Label" inverseName="pullRequest" inverseEntity="Label" syncable="YES"/>
         <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="pullRequest" inverseEntity="Repository" syncable="YES"/>

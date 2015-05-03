@@ -10,29 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MackHub/GitHubManager.swift"
-            timestampString = "452368496.403225"
+            timestampString = "452379517.41254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "checkUpdates()"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "loadLabels(_:)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MackHub/AppDelegate.swift"
-            timestampString = "452369604.067869"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "persistentStoreCoordinator"
-            landmarkType = "19">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -60,17 +60,17 @@ class GitHubManager {
             var repo = RepositoryManager.sharedInstance.newRepository();
             repo.name = result["name"] as! String;
             var arg: AnyObject? = result["description"];
-            if (arg?.isEqual(NSNull()) == nil) {
-                repo.info = result["description"] as! String;
-            } else {
+            if arg!.isEqual(NSNull()) {
                 repo.info = "";
+            } else {
+                repo.info = result["description"] as! String;
             }
             repo.updatedAt = stringToDate(result["updated_at"] as! String);
             arg = result["language"];
-            if arg?.isEqual(NSNull()) == nil {
-                repo.progLanguage = result["language"] as! String;
-            } else {
+            if arg!.isEqual(NSNull()) {
                 repo.progLanguage = "Language unknown";
+            } else {
+                repo.progLanguage = result["language"] as! String;
             }
             RepositoryManager.sharedInstance.save();
         }
@@ -92,18 +92,15 @@ class GitHubManager {
                 var pullReq = PullRequestManager.sharedInstance.newPullRequest()
                 pullReq.repoName = repo.name
                 pullReq.updatedAt = stringToDate(result["updated_at"] as! String);
-                pullReq.repository = repo
-                var lbls: [Label] = []
+//                pullReq.repository = repo
                 for lbl in result["labels"] as! NSArray{
                     var l = LabelManager.sharedInstance.newLabel()
                     l.color = lbl["color"] as! String
                     l.name = lbl["name"] as! String
-                    l.pullRequest = pullReq
-                    LabelManager.sharedInstance.save()
-                    lbls.append(l)
+//                    l.pullRequest = pullReq
+                    pullReq.addLabel(l);
                 }
-                pullReq.labels.setByAddingObjectsFromArray(lbls)
-                PullRequestManager.sharedInstance.save()
+//                PullRequestManager.sharedInstance.save()
                 break;
             }
         }
@@ -117,11 +114,6 @@ class GitHubManager {
         });
         timer?.invalidate();
         timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: "checkUpdates", userInfo: nil, repeats: true);
-        
-//        if (task != UIBackgroundTaskInvalid) {
-//            println("teste3");
-//            UIApplication.sharedApplication().endBackgroundTask(task);
-//        }
     }
     
     @objc func checkUpdates() {
@@ -137,35 +129,35 @@ class GitHubManager {
             var error: NSError?
             var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
             
-            for result in results{
-                var user = result["user"] as! NSDictionary
-                if ((user["login"] as! String) == login){
-                    
-                    if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
-                        
-                        println("\(counter) Update found in \(pullReq.repoName)!");
-                        
+//            for result in results{
+//                var user = result["user"] as! NSDictionary
+//                if ((user["login"] as! String) == login){
+//                    
+//                    if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
+//                        
+//                        println("\(counter) Update found in \(pullReq.repoName)!");
+//                        
+////                        for lbl in result["labels"] as! NSArray{
+////                            var l = LabelManager.sharedInstance.newLabel()
+////                            l.color = lbl["color"] as! String
+////                            l.name = lbl["name"] as! String
+////                            l.pullRequest = pullReq
+////                            LabelManager.sharedInstance.save()
+////                        }
+//                        
+//                        var labels: Array<Label>!
 //                        for lbl in result["labels"] as! NSArray{
-//                            var l = LabelManager.sharedInstance.newLabel()
-//                            l.color = lbl["color"] as! String
-//                            l.name = lbl["name"] as! String
-//                            l.pullRequest = pullReq
-//                            LabelManager.sharedInstance.save()
+//                            var l = LabelManager.sharedInstance.newLabel();
+//                            l.color = lbl["color"] as! String;
+//                            l.name = lbl["name"] as! String;
+//                            l.pullRequest = pullReq;
+//                            labels.append(l);
 //                        }
-                        
-                        var labels: Array<Label>!
-                        for lbl in result["labels"] as! NSArray{
-                            var l = LabelManager.sharedInstance.newLabel();
-                            l.color = lbl["color"] as! String;
-                            l.name = lbl["name"] as! String;
-                            l.pullRequest = pullReq;
-                            labels.append(l);
-                        }
-                        pullReq.labels = NSSet(array: labels);
-                        PullRequestManager.sharedInstance.save()
-                    }
-                }
-            }
+//                        pullReq.labels = NSSet(array: labels);
+//                        PullRequestManager.sharedInstance.save()
+//                    }
+//                }
+//            }
         }
         
         
