@@ -116,6 +116,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row != selectedCell {
+            
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
@@ -126,6 +127,10 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         } else {
             return 50
         }
+    }
+    
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        selectedCell = indexPath.row
     }
     
     var blackView = UIView()
