@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira um login" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-Ci-Myy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira seu login" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-Ci-Myy">
                                 <rect key="frame" x="196" y="285" width="208" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="D6i-7Q-9v3"/>
@@ -172,6 +172,11 @@
                                 <action selector="refreshRepos:" destination="74U-DC-Fxg" id="eXr-3k-j9e"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sair" id="PqN-XU-n87">
+                            <connections>
+                                <action selector="exit:" destination="74U-DC-Fxg" id="gaH-5m-slJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="repositorySearchBar" destination="hAP-Fn-wCD" id="zpJ-d4-bB7"/>
@@ -195,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ry4-Y2-24S">
-                                <rect key="frame" x="0.0" y="95" width="600" height="441"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Label" rowHeight="60" id="bO2-gP-OnN" customClass="LabelsCell" customModule="MackHub" customModuleProvider="target">
@@ -206,8 +211,8 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOj-lT-Gum">
                                                     <rect key="frame" x="25" y="19" width="550" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -227,26 +232,49 @@
                                     <outlet property="delegate" destination="FD2-I6-uvG" id="Ves-dX-1M1"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSn-Y3-MuG">
-                                <rect key="frame" x="20" y="10" width="560" height="75"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSn-Y3-MuG">
+                                <rect key="frame" x="20" y="44" width="560" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="acr-y3-Cxm"/>
+                                    <constraint firstAttribute="height" constant="41" id="acr-y3-Cxm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="acr-y3-Cxm"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88x-Lq-Uzi">
+                                <rect key="frame" x="20" y="15" width="101" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="0ug-5G-pLV"/>
+                                    <constraint firstAttribute="height" constant="21" id="46o-uZ-CWD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ry4-Y2-24S" secondAttribute="trailing" id="2ss-eu-kUv"/>
+                            <constraint firstItem="XSn-Y3-MuG" firstAttribute="top" secondItem="88x-Lq-Uzi" secondAttribute="bottom" constant="8" id="LmM-5T-fDE"/>
                             <constraint firstItem="vDO-dL-Yoj" firstAttribute="top" secondItem="ry4-Y2-24S" secondAttribute="bottom" id="MJA-Cf-iMW"/>
+                            <constraint firstItem="88x-Lq-Uzi" firstAttribute="top" secondItem="Q6f-28-UtC" secondAttribute="bottom" constant="15" id="QaD-SX-DCt"/>
                             <constraint firstItem="XSn-Y3-MuG" firstAttribute="leading" secondItem="LHp-1O-oFG" secondAttribute="leading" constant="20" id="XmD-nk-X92"/>
                             <constraint firstAttribute="trailing" secondItem="XSn-Y3-MuG" secondAttribute="trailing" constant="20" id="YXI-ov-akR"/>
                             <constraint firstItem="ry4-Y2-24S" firstAttribute="leading" secondItem="LHp-1O-oFG" secondAttribute="leading" id="bCe-qB-Sgy"/>
-                            <constraint firstItem="XSn-Y3-MuG" firstAttribute="top" secondItem="Q6f-28-UtC" secondAttribute="bottom" constant="10" id="goa-dO-2Fg"/>
-                            <constraint firstItem="ry4-Y2-24S" firstAttribute="top" secondItem="XSn-Y3-MuG" secondAttribute="bottom" constant="10" id="w7n-WA-y6M"/>
+                            <constraint firstItem="XSn-Y3-MuG" firstAttribute="top" secondItem="Q6f-28-UtC" secondAttribute="bottom" constant="44" id="goa-dO-2Fg"/>
+                            <constraint firstItem="88x-Lq-Uzi" firstAttribute="leading" secondItem="LHp-1O-oFG" secondAttribute="leadingMargin" constant="4" id="ufL-c3-Nxb"/>
+                            <constraint firstItem="ry4-Y2-24S" firstAttribute="top" secondItem="XSn-Y3-MuG" secondAttribute="bottom" constant="8" id="w7n-WA-y6M"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="goa-dO-2Fg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="repoInfo" destination="XSn-Y3-MuG" id="SHW-Ef-5fF"/>

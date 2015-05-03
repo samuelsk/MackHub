@@ -168,4 +168,32 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
             tableRepos.reloadData();
         }
     }
+    
+    @IBAction func exit(sender: UIBarButtonItem) {
+        
+        let alerta: UIAlertController = UIAlertController(title: "Tem certeza?", message: "", preferredStyle: .Alert)
+        
+        let acao1: UIAlertAction = UIAlertAction(title: "Cancelar", style: .Default) { action -> Void in
+            println("Cancelar")
+            
+        }
+        
+        alerta.addAction(acao1)
+        
+        let acao2: UIAlertAction = UIAlertAction(title: "Sair", style: .Default) { action -> Void in
+            println("Sair")
+            
+        }
+        
+        alerta.addAction(acao2)
+        
+        self.presentViewController(alerta, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowDetail" {
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        }
+    }
+    
 }

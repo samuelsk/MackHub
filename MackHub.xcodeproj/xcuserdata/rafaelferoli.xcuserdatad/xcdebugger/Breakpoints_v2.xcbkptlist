@@ -25,12 +25,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MackHub/RepositoriesTableViewController.swift"
-            timestampString = "452282881.253203"
+            filePath = "MackHub/PullRequestManager.swift"
+            timestampString = "452369215.413852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "fetchPullRequests()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
