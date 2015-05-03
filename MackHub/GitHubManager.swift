@@ -19,7 +19,7 @@ class GitHubManager {
     private let userDefaults = NSUserDefaults.standardUserDefaults();
     private var timer: NSTimer?;
     
-    var counter = 0;
+    var counter = 1;
     
     //Whenever a new login will be set, it'll be saved in NSUserDefaults so the user won't need to insert his login again next time he starts the app.
     var login: String! {
@@ -31,7 +31,7 @@ class GitHubManager {
         }
     }
     
-    //MARK: - Inicialization
+    //MARK: - Interface
     
     private init() {
         //If a login was set before in NSUserDefaults, it'll be retrieved when GitHubManager is called the first time.
