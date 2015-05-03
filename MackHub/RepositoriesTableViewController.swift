@@ -28,12 +28,14 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         if (repos.isEmpty) {
             ghManager.loadRepos()
+            repos = RepositoryManager.sharedInstance.fetchRepositories();
         }
-        repos = RepositoryManager.sharedInstance.fetchRepositories();
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
+        CoreDataManager.sharedInstance.resetCoreData();
         ghManager.loadRepos()
+        repos = RepositoryManager.sharedInstance.fetchRepositories();
         self.tableRepos.reloadData()
     }
     
