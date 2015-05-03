@@ -83,13 +83,16 @@ class GitHubManager {
                 pullReq.repoName = repo.name
                 pullReq.updatedAt = stringToDate(result["updated_at"] as! String);
                 pullReq.repository = repo
+                var lbls: [Label] = []
                 for lbl in result["labels"] as! NSArray{
                     var l = LabelManager.sharedInstance.newLabel()
                     l.color = lbl["color"] as! String
                     l.name = lbl["name"] as! String
                     l.pullRequest = pullReq
                     LabelManager.sharedInstance.save()
+                    lbls.append(l)
                 }
+                pullReq.labels.setByAddingObjectsFromArray(lbls)
                 PullRequestManager.sharedInstance.save()
             }
         }

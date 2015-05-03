@@ -17,11 +17,9 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var selectedRepo: Repository!
     var ghManager = GitHubManager.sharedInstance;
     
-    var labels: [Label] = []
+    var labels: NSArray = []
     
-    lazy var pullReq = {
-        return PullRequestManager.sharedInstance.fetchPullRequest().first;
-    }()
+    var pullReq: PullRequest?
     
     @IBOutlet weak var repoInfo: UILabel!
     
@@ -32,8 +30,10 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
         nCenter.postNotificationName(pKey, object: nil)
 
-//        self.navigationItem.title = selectedRepo.name
+        self.navigationItem.title = selectedRepo.name
 
+        pullReq = PullRequestManager.sharedInstance.fetchPullRequest(selectedRepo);
+        
         // Do any additional setup after loading the view.
     }
     
@@ -41,10 +41,18 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let uInfo = notif.userInfo as! [String:Repository]
         selectedRepo = uInfo["repo"]
         
-        if (pullReq == nil) {
+        if pullReq == nil {
             ghManager.loadLabels(selectedRepo)
-            pullReq = PullRequestManager.sharedInstance.fetchPullRequest().first;
-            labels = NSArray(objects: pullReq!.labels.allObjects) as! [Label]
+            pullReq = PullRequestManager.sharedInstance.fetchPullRequest(selectedRepo);
+            labels = NSArray(objects: pullReq!.labels.allObjects)
+            if labels.count != 0{
+                labels = labels[0] as! NSArray
+                let sd = NSSortDescriptor(key: "name", ascending: true)
+                labels = labels.sortedArrayUsingDescriptors([sd])
+            }
+        }
+        else{
+            labels = NSArray()
         }
         
         self.navigationItem.title = selectedRepo.name
@@ -69,7 +77,7 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: LabelsCell = tableView.dequeueReusableCellWithIdentifier("Label", forIndexPath: indexPath) as! LabelsCell
         
-        let l = labels[indexPath.row]
+        let l = labels[indexPath.row] as! Label
         
         cell.backgroundColor = UIColor(hexa: l.color)
         cell.lblName.text = l.name

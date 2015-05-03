@@ -46,14 +46,18 @@ class PullRequestManager {
         return Array<PullRequest>();
     }
     
-    func fetchPullRequest() -> Array<PullRequest> {
+    func fetchPullRequest(repo: Repository?) -> PullRequest {
         let fetchRequest = NSFetchRequest(entityName: PullRequestManager.entityName);
-        fetchRequest.predicate = NSPredicate(format: "repoName == %@", "iDicionario");
+        if repo != nil{
+            fetchRequest.predicate = NSPredicate(format: "repoName == %@", repo!.name);
+        }
         var error: NSError?
         let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
 
         if let results = fetchedResults as? [PullRequest] {
-            return results;
+            if results != []{
+                return results.last! as PullRequest;
+            }
 //        let results = fetchedResults as! [PullRequest];
 //        if results.count != 0 {
 //            return results.first!;
@@ -61,7 +65,9 @@ class PullRequestManager {
             println("Error while fetching: \(error), \(error?.userInfo)");
         }
         
-        return Array<PullRequest>();
+        let pull = self.newPullRequest()
+        
+        return pull;
     }
     
 }
