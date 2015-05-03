@@ -26,30 +26,23 @@ class CoreDataManager {
     lazy var applicationDocumentsDirectory: NSURL = {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
         return appDelegate.applicationDocumentsDirectory;
-    }()
+        }()
     
-//    func resetApplicationModel() {
-//        var error: NSError?
-//        managedObjectContext.reset();
-//        var storeURL = applicationDocumentsDirectory.URLByAppendingPathComponent("MackHub.sqlite");
-//        NSFileManager.defaultManager().removeItemAtURL(storeURL, error: nil);
-//        for managedObject in managedObjectContext.registeredObjects {
-//            managedObjectContext.deleteObject(managedObject as! NSManagedObject);
-//        }
-//        
-//        persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error);
-////            println("Error while adding persistent store: \(error), \(error!.userInfo)");
-//    }
-//    
-//    func removeRepositories() {
-//        managedObjectContext.reset();
-//        var error: NSError?
-//        for store in persistentStoreCoordinator.persistentStores {
-//            var didRemove = persistentStoreCoordinator.removePersistentStore(store as! NSPersistentStore, error: &error);
-//            if (!didRemove) {
-//                println("Error while removing persistent store: \(error), \(error!.userInfo)");
-//            }
-//        }
-//    }
+    func resetCoreData() {
+        managedObjectContext.reset();
+        let storeURL = applicationDocumentsDirectory.URLByAppendingPathComponent("MackHub.sqlite");
+        let fileManager = NSFileManager.defaultManager();
+        
+        fileManager.removeItemAtURL(storeURL, error: nil);
+        
+        var error: NSError?
+        for store in persistentStoreCoordinator.persistentStores {
+            if (!persistentStoreCoordinator.removePersistentStore(store as! NSPersistentStore, error: &error)) {
+                println("Error while removing persistent store: \(error), \(error!.userInfo)");
+            }
+        }
+        
+        persistentStoreCoordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil
+    }
     
 }

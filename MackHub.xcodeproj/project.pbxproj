@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E66C8C01AF53B7D00C331B5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C8BF1AF53B7D00C331B5 /* CoreDataManager.swift */; };
+		7E66C8C21AF5885200C331B5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E66C8C11AF5885200C331B5 /* CoreDataManager.swift */; };
 		7E9880391AEEC730004059F4 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9880381AEEC730004059F4 /* PullRequest.swift */; };
 		7E98803B1AEECB72004059F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E98803A1AEECB72004059F4 /* CoreData.framework */; };
 		7E9880401AEECF4C004059F4 /* PullRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98803F1AEECF4C004059F4 /* PullRequestManager.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E66C8BF1AF53B7D00C331B5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7E66C8C11AF5885200C331B5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7E9880381AEEC730004059F4 /* PullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		7E98803A1AEECB72004059F4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7E98803F1AEECF4C004059F4 /* PullRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestManager.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				CAFECF011AEEA61500600ED1 /* MackHub.xcdatamodeld */,
-				7E66C8BF1AF53B7D00C331B5 /* CoreDataManager.swift */,
+				7E66C8C11AF5885200C331B5 /* CoreDataManager.swift */,
 				7ECF80501AF161A600F02D73 /* RepositoryManager.swift */,
 				7E98803F1AEECF4C004059F4 /* PullRequestManager.swift */,
 				D57540991AF2B350003FCA42 /* LabelManager.swift */,
@@ -288,7 +288,7 @@
 				7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */,
 				CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */,
 				CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */,
-				7E66C8C01AF53B7D00C331B5 /* CoreDataManager.swift in Sources */,
+				7E66C8C21AF5885200C331B5 /* CoreDataManager.swift in Sources */,
 				7ECF80511AF161A600F02D73 /* RepositoryManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
