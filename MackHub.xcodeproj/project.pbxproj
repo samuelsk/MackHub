@@ -24,6 +24,7 @@
 		CAFECF0D1AEEA61500600ED1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAFECF0B1AEEA61500600ED1 /* LaunchScreen.xib */; };
 		CAFECF191AEEA61500600ED1 /* MackHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF181AEEA61500600ED1 /* MackHubTests.swift */; };
 		CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */; };
+		D534A9A91AF5AC10003DB62F /* LabelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D534A9A81AF5AC10003DB62F /* LabelsCell.swift */; };
 		D575409A1AF2B350003FCA42 /* LabelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57540991AF2B350003FCA42 /* LabelManager.swift */; };
 		D5785E7A1AF265B70043EDE3 /* LabelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5785E791AF265B70043EDE3 /* LabelsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		CAFECF171AEEA61500600ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFECF181AEEA61500600ED1 /* MackHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackHubTests.swift; sourceTree = "<group>"; };
 		CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
+		D534A9A81AF5AC10003DB62F /* LabelsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelsCell.swift; sourceTree = "<group>"; };
 		D57540991AF2B350003FCA42 /* LabelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelManager.swift; sourceTree = "<group>"; };
 		D5785E791AF265B70043EDE3 /* LabelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 				CAFECF2A1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift */,
 				CA4F31631AF159A8005414EF /* RepositoriesTableViewCell.swift */,
 				D5785E791AF265B70043EDE3 /* LabelsViewController.swift */,
+				D534A9A81AF5AC10003DB62F /* LabelsCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				D5785E7A1AF265B70043EDE3 /* LabelsViewController.swift in Sources */,
 				7ECF804D1AF1551500F02D73 /* Repository.swift in Sources */,
 				7E9880401AEECF4C004059F4 /* PullRequestManager.swift in Sources */,
+				D534A9A91AF5AC10003DB62F /* LabelsCell.swift in Sources */,
 				7ECF804F1AF1598000F02D73 /* Label.swift in Sources */,
 				CAFECF031AEEA61500600ED1 /* MackHub.xcdatamodeld in Sources */,
 				7EBA3CCC1AEEB324002A1E2B /* GitHubManager.swift in Sources */,

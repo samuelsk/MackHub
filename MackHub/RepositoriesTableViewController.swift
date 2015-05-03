@@ -11,6 +11,7 @@ import UIKit
 class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
     let nKey = "repository"
+    let pKey = "Pull"
     let nCenter = NSNotificationCenter.defaultCenter()
     
     lazy var repos: Array<Repository> = {
@@ -30,6 +31,8 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
             ghManager.loadRepos()
             repos = RepositoryManager.sharedInstance.fetchRepositories();
         }
+        
+        nCenter.addObserver(self, selector: "sendRepo:", name: pKey, object: nil)
     }
 
     @IBAction func refreshRepos(sender: AnyObject) {
@@ -44,6 +47,10 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
             repositorySearchBar.delegate = self
             repositorySearchBar.keyboardAppearance = UIKeyboardAppearance.Dark;
         }
+    }
+    
+    func sendRepo(notif: NSNotification){
+        nCenter.postNotificationName(nKey, object: nil, userInfo: ["repo":repos[selectedCell]])
     }
     
     // MARK: - Table view data source
@@ -134,12 +141,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        
-        nCenter.postNotificationName(nKey, object: nil, userInfo: ["repo":repos[indexPath.row]])
-        
-        let vc = LabelsViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        performSegueWithIdentifier("ShowDetail", sender: nil)
+        selectedCell = indexPath.row
     }
     
     // MARK: - Navigation
