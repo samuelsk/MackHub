@@ -46,7 +46,7 @@ class PullRequestManager {
         return Array<PullRequest>();
     }
     
-    func fetchPullRequest(repo: Repository?) -> PullRequest {
+    func fetchPullRequest(repo: Repository?) -> PullRequest? {
         let fetchRequest = NSFetchRequest(entityName: PullRequestManager.entityName);
         if repo != nil{
             fetchRequest.predicate = NSPredicate(format: "repoName == %@", repo!.name);
@@ -58,16 +58,11 @@ class PullRequestManager {
             if results != []{
                 return results.last! as PullRequest;
             }
-//        let results = fetchedResults as! [PullRequest];
-//        if results.count != 0 {
-//            return results.first!;
         } else {
             println("Error while fetching: \(error), \(error?.userInfo)");
         }
         
-        let pull = self.newPullRequest()
-        
-        return pull;
+        return nil;
     }
     
 }

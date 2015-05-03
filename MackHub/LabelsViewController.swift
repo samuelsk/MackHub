@@ -46,11 +46,13 @@ class LabelsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             pullReq = PullRequestManager.sharedInstance.fetchPullRequest(selectedRepo);
         }
         
+        if pullReq != nil {
         labels = NSArray(objects: pullReq!.labels.allObjects)
         if labels.count != 0{
             labels = labels[0] as! NSArray
             let sd = NSSortDescriptor(key: "name", ascending: true)
             labels = labels.sortedArrayUsingDescriptors([sd])
+        }
         }
         
         self.navigationItem.title = selectedRepo.name

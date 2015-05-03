@@ -26,7 +26,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         super.viewDidLoad()
         
         //Remover linha abaixo
-        GitHubManager.sharedInstance.login = "RGondek";
+        GitHubManager.sharedInstance.login = "samuelsk";
         
         if (repos.isEmpty) {
             ghManager.loadRepos()

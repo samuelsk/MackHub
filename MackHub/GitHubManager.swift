@@ -92,15 +92,14 @@ class GitHubManager {
                 var pullReq = PullRequestManager.sharedInstance.newPullRequest()
                 pullReq.repoName = repo.name
                 pullReq.updatedAt = stringToDate(result["updated_at"] as! String);
-//                pullReq.repository = repo
+                
                 for lbl in result["labels"] as! NSArray{
                     var l = LabelManager.sharedInstance.newLabel()
                     l.color = lbl["color"] as! String
                     l.name = lbl["name"] as! String
-//                    l.pullRequest = pullReq
                     pullReq.addLabel(l);
                 }
-//                PullRequestManager.sharedInstance.save()
+                PullRequestManager.sharedInstance.save()
                 break;
             }
         }
@@ -129,35 +128,34 @@ class GitHubManager {
             var error: NSError?
             var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
             
-//            for result in results{
-//                var user = result["user"] as! NSDictionary
-//                if ((user["login"] as! String) == login){
-//                    
-//                    if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
-//                        
-//                        println("\(counter) Update found in \(pullReq.repoName)!");
-//                        
-////                        for lbl in result["labels"] as! NSArray{
-////                            var l = LabelManager.sharedInstance.newLabel()
-////                            l.color = lbl["color"] as! String
-////                            l.name = lbl["name"] as! String
-////                            l.pullRequest = pullReq
-////                            LabelManager.sharedInstance.save()
-////                        }
-//                        
-//                        var labels: Array<Label>!
+            for result in results{
+                var user = result["user"] as! NSDictionary
+                if ((user["login"] as! String) == login){
+                    
+                    if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
+                        
+                        println("\(counter) Update found in \(pullReq.repoName)!");
+                        
 //                        for lbl in result["labels"] as! NSArray{
-//                            var l = LabelManager.sharedInstance.newLabel();
-//                            l.color = lbl["color"] as! String;
-//                            l.name = lbl["name"] as! String;
-//                            l.pullRequest = pullReq;
-//                            labels.append(l);
+//                            var l = LabelManager.sharedInstance.newLabel()
+//                            l.color = lbl["color"] as! String
+//                            l.name = lbl["name"] as! String
+//                            l.pullRequest = pullReq
+//                            LabelManager.sharedInstance.save()
 //                        }
-//                        pullReq.labels = NSSet(array: labels);
-//                        PullRequestManager.sharedInstance.save()
-//                    }
-//                }
-//            }
+                        
+                        var labels: Array<Label>!
+                        for lbl in result["labels"] as! NSArray{
+                            var l = LabelManager.sharedInstance.newLabel();
+                            l.color = lbl["color"] as! String;
+                            l.name = lbl["name"] as! String;
+                            labels.append(l);
+                        }
+                        pullReq.labels = NSSet(array: labels);
+                        PullRequestManager.sharedInstance.save()
+                    }
+                }
+            }
         }
         
         
