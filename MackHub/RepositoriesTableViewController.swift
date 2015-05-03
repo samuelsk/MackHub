@@ -25,8 +25,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Remover linha abaixo
-        GitHubManager.sharedInstance.login = "samuelsk";
+        self.navigationController?.navigationBarHidden = false;
         
         if (repos.isEmpty) {
             ghManager.loadRepos()
@@ -176,10 +175,8 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         alerta.addAction(acao1)
         
         let acao2: UIAlertAction = UIAlertAction(title: "Sair", style: .Default) { action -> Void in
-            println("Sair")
-            
+            self.navigationController?.popToRootViewControllerAnimated(true);
         }
-        
         alerta.addAction(acao2)
         
         self.presentViewController(alerta, animated: true, completion: nil)

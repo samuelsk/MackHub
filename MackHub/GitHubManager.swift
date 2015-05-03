@@ -19,8 +19,6 @@ class GitHubManager {
     private let userDefaults = NSUserDefaults.standardUserDefaults();
     private var timer: NSTimer?;
     
-    var counter = 1;
-    
     //Whenever a new login will be set, it'll be saved in NSUserDefaults so the user won't need to insert his login again next time he starts the app.
     var login: String! {
         willSet {
@@ -76,9 +74,6 @@ class GitHubManager {
                 RepositoryManager.sharedInstance.save();
             }
         }
-        else {
-            println("Nem tem internet fera!")
-        }
     }
     
     func loadLabels(repo: Repository){
@@ -110,9 +105,6 @@ class GitHubManager {
                 }
             }
         }
-        else {
-            println("Também tá sem net campeão")
-        }
     }
     
     //MARK: Data updates verification
@@ -127,9 +119,6 @@ class GitHubManager {
     
     @objc func checkUpdates() {
         
-        println("\(counter) Checking updates...");
-        counter++;
-        
         if Reachability.isConnectedToNetwork(){
             var pullRequests = PullRequestManager.sharedInstance.fetchPullRequests();
             
@@ -142,26 +131,18 @@ class GitHubManager {
                 for result in results{
                     var user = result["user"] as! NSDictionary
                     if ((user["login"] as! String) == login){
-                        
-                        if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
+                        var updatedAt = stringToDate(result["updated_at"] as! String);
+                        if (pullReq.updatedAt != updatedAt) {
+                            pullReq.updatedAt = updatedAt;
                             
-                            println("\(counter) Update found in \(pullReq.repoName)!");
-                            
-                            //                        for lbl in result["labels"] as! NSArray{
-                            //                            var l = LabelManager.sharedInstance.newLabel()
-                            //                            l.color = lbl["color"] as! String
-                            //                            l.name = lbl["name"] as! String
-                            //                            l.pullRequest = pullReq
-                            //                            LabelManager.sharedInstance.save()
-                            //                        }
-                            
-                            var labels: Array<Label>!
+                            var labels: [Label] = [];
                             for lbl in result["labels"] as! NSArray{
                                 var l = LabelManager.sharedInstance.newLabel();
                                 l.color = lbl["color"] as! String;
                                 l.name = lbl["name"] as! String;
                                 labels.append(l);
                             }
+                            
                             pullReq.labels = NSSet(array: labels);
                             PullRequestManager.sharedInstance.save()
                         }
@@ -169,10 +150,6 @@ class GitHubManager {
                 }
             }
         }
-        else {
-            println("O loco fera, e essa internet ruim ai?")
-        }
-        
     }
     
     //MARK: - Auxiliary functions

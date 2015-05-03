@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Variable declaration
 
@@ -19,8 +19,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBarHidden = true;
+        
         if ((ghManager.login) != nil) {
-            print(ghManager.login);
+            performSegueWithIdentifier("repositoriesSegue", sender: self);
         }
         
         login.delegate = self;
@@ -36,14 +38,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else {
             //O nome de usuário inserido é guardado para futura referência.
             ghManager.login = textField.text;
+            performSegueWithIdentifier("repositoriesSegue", sender: self);
             return true;
         }
         
         return false;
     }
-
-
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        login.resignFirstResponder();
+    }
     
 }
 
