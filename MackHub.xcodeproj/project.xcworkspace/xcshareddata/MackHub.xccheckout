@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>989F6247-8A72-4E2A-A75F-09A8D87CA98B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>MackHub</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8E922FE500BDB9BC13A0625A53E6A4AE04D37259</key>
 		<string>https://github.com/samuelsk/MackHub</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MackHub.xcodeproj/project.xcworkspace</string>
+	<string>MackHub.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8E922FE500BDB9BC13A0625A53E6A4AE04D37259</key>

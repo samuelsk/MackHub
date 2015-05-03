@@ -103,7 +103,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == selectedCell {
-            return 100
+            return 75
         } else {
             return 50
         }
@@ -136,26 +136,10 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         nCenter.postNotificationName(nKey, object: nil, userInfo: ["repo":repos[indexPath.row]])
         
         let vc = LabelsViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
 //        performSegueWithIdentifier("ShowDetail", sender: nil)
     }
     
-    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "ShowDetail" {
-            let lvc: LabelsViewController = segue.destinationViewController as! LabelsViewController
-            lvc.selectedRepo = repos[2]
-            segue.perform()
-        }
-    }
-    
-    
-
 
 }

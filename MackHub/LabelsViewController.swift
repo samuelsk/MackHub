@@ -25,6 +25,8 @@ class LabelsViewController: UIViewController {
         
         nCenter.addObserver(self, selector: "load:", name: nKey, object: nil)
         
+//        self.navigationItem.title = selectedRepo.name
+
         // Do any additional setup after loading the view.
     }
     
@@ -35,6 +37,7 @@ class LabelsViewController: UIViewController {
         if (pullReq == nil) {
             ghManager.loadLabels(selectedRepo)
         }
+        
     }
     
     
