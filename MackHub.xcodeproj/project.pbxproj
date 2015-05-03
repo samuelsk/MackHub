@@ -27,6 +27,7 @@
 		D534A9A91AF5AC10003DB62F /* LabelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D534A9A81AF5AC10003DB62F /* LabelsCell.swift */; };
 		D575409A1AF2B350003FCA42 /* LabelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57540991AF2B350003FCA42 /* LabelManager.swift */; };
 		D5785E7A1AF265B70043EDE3 /* LabelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5785E791AF265B70043EDE3 /* LabelsViewController.swift */; };
+		D5FA44641AF6D6C800BF93C0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA44631AF6D6C800BF93C0 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		D534A9A81AF5AC10003DB62F /* LabelsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelsCell.swift; sourceTree = "<group>"; };
 		D57540991AF2B350003FCA42 /* LabelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelManager.swift; sourceTree = "<group>"; };
 		D5785E791AF265B70043EDE3 /* LabelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelsViewController.swift; sourceTree = "<group>"; };
+		D5FA44631AF6D6C800BF93C0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = ../../../../../Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		7EBA3CCA1AEEAE98002A1E2B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				D5FA44631AF6D6C800BF93C0 /* Reachability.swift */,
 				7EBA3CCB1AEEB324002A1E2B /* GitHubManager.swift */,
 				7ECF804C1AF1551500F02D73 /* Repository.swift */,
 				7E9880381AEEC730004059F4 /* PullRequest.swift */,
@@ -293,6 +296,7 @@
 				CA4F31641AF159A8005414EF /* RepositoriesTableViewCell.swift in Sources */,
 				CAFECF2B1AEEC1FA00600ED1 /* RepositoriesTableViewController.swift in Sources */,
 				7E66C8C21AF5885200C331B5 /* CoreDataManager.swift in Sources */,
+				D5FA44641AF6D6C800BF93C0 /* Reachability.swift in Sources */,
 				7ECF80511AF161A600F02D73 /* RepositoryManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

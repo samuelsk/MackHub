@@ -44,64 +44,74 @@ class GitHubManager {
     
     ///MARK: Data retrieval
     func loadRepos() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        //  Repositorios do usuário
-        var url = NSURL(string: "https://api.github.com/users/mackmobile/repos?client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
-        var jsonData = NSData(contentsOfURL: url!)
-        
-        var error: NSError? = NSError()
-        //
-        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        
-        for result in results {
-            var repo = RepositoryManager.sharedInstance.newRepository();
-            repo.name = result["name"] as! String;
-            var arg: AnyObject? = result["description"];
-            if arg!.isEqual(NSNull()) {
-                repo.info = "";
-            } else {
-                repo.info = result["description"] as! String;
+        if Reachability.isConnectedToNetwork() {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            //  Repositorios do usuário
+            var url = NSURL(string: "https://api.github.com/users/mackmobile/repos?client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
+            var jsonData = NSData(contentsOfURL: url!)
+            
+            var error: NSError? = NSError()
+            //
+            var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            for result in results {
+                var repo = RepositoryManager.sharedInstance.newRepository();
+                repo.name = result["name"] as! String;
+                var arg: AnyObject? = result["description"];
+                if arg!.isEqual(NSNull()) {
+                    repo.info = "";
+                } else {
+                    repo.info = result["description"] as! String;
+                }
+                repo.updatedAt = stringToDate(result["updated_at"] as! String);
+                arg = result["language"];
+                if arg!.isEqual(NSNull()) {
+                    repo.progLanguage = "Language unknown";
+                } else {
+                    repo.progLanguage = result["language"] as! String;
+                }
+                RepositoryManager.sharedInstance.save();
             }
-            repo.updatedAt = stringToDate(result["updated_at"] as! String);
-            arg = result["language"];
-            if arg!.isEqual(NSNull()) {
-                repo.progLanguage = "Language unknown";
-            } else {
-                repo.progLanguage = result["language"] as! String;
-            }
-            RepositoryManager.sharedInstance.save();
+        }
+        else {
+            println("Nem tem internet fera!")
         }
     }
     
     func loadLabels(repo: Repository){
-        //     Pull Request
-        var url = NSURL(string: "https://api.github.com/repos/mackmobile/\(repo.name)/issues?per_page=100&client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
-        var jsonData = NSData(contentsOfURL: url!)
-        
-        var error: NSError? = NSError()
-        
-        var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
-        
-        for result in results{
-            var user = result["user"] as! NSDictionary
-            if ((user["login"] as! String) == login){
-                // Salvar pull request
-                var pullReq = PullRequestManager.sharedInstance.newPullRequest()
-                pullReq.repoName = repo.name
-                pullReq.updatedAt = stringToDate(result["updated_at"] as! String);
-                
-                for lbl in result["labels"] as! NSArray{
-                    var l = LabelManager.sharedInstance.newLabel()
-                    l.color = lbl["color"] as! String
-                    l.name = lbl["name"] as! String
-                    pullReq.addLabel(l);
+        if Reachability.isConnectedToNetwork(){
+            //     Pull Request
+            var url = NSURL(string: "https://api.github.com/repos/mackmobile/\(repo.name)/issues?per_page=100&client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
+            var jsonData = NSData(contentsOfURL: url!)
+            
+            var error: NSError? = NSError()
+            
+            var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+            
+            for result in results{
+                var user = result["user"] as! NSDictionary
+                if ((user["login"] as! String) == login){
+                    // Salvar pull request
+                    var pullReq = PullRequestManager.sharedInstance.newPullRequest()
+                    pullReq.repoName = repo.name
+                    pullReq.updatedAt = stringToDate(result["updated_at"] as! String);
+                    
+                    for lbl in result["labels"] as! NSArray{
+                        var l = LabelManager.sharedInstance.newLabel()
+                        l.color = lbl["color"] as! String
+                        l.name = lbl["name"] as! String
+                        pullReq.addLabel(l);
+                    }
+                    PullRequestManager.sharedInstance.save()
+                    break;
                 }
-                PullRequestManager.sharedInstance.save()
-                break;
             }
+        }
+        else {
+            println("Também tá sem net campeão")
         }
     }
     
@@ -120,44 +130,48 @@ class GitHubManager {
         println("\(counter) Checking updates...");
         counter++;
         
-        var pullRequests = PullRequestManager.sharedInstance.fetchPullRequests();
-        
-        for pullReq in pullRequests {
-            var url = NSURL(string: "https://api.github.com/repos/mackmobile/\(pullReq.repoName)/issues?per_page=100&client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
-            var jsonData = NSData(contentsOfURL: url!)
-            var error: NSError?
-            var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+        if Reachability.isConnectedToNetwork(){
+            var pullRequests = PullRequestManager.sharedInstance.fetchPullRequests();
             
-            for result in results{
-                var user = result["user"] as! NSDictionary
-                if ((user["login"] as! String) == login){
-                    
-                    if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
+            for pullReq in pullRequests {
+                var url = NSURL(string: "https://api.github.com/repos/mackmobile/\(pullReq.repoName)/issues?per_page=100&client_id=9e6db8dfc8a1aef27931&client_secret=a39f6583d22d099a4cbc762ee5afc863e111f215")
+                var jsonData = NSData(contentsOfURL: url!)
+                var error: NSError?
+                var results: NSArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
+                
+                for result in results{
+                    var user = result["user"] as! NSDictionary
+                    if ((user["login"] as! String) == login){
                         
-                        println("\(counter) Update found in \(pullReq.repoName)!");
-                        
-//                        for lbl in result["labels"] as! NSArray{
-//                            var l = LabelManager.sharedInstance.newLabel()
-//                            l.color = lbl["color"] as! String
-//                            l.name = lbl["name"] as! String
-//                            l.pullRequest = pullReq
-//                            LabelManager.sharedInstance.save()
-//                        }
-                        
-                        var labels: Array<Label>!
-                        for lbl in result["labels"] as! NSArray{
-                            var l = LabelManager.sharedInstance.newLabel();
-                            l.color = lbl["color"] as! String;
-                            l.name = lbl["name"] as! String;
-                            labels.append(l);
+                        if (pullReq.updatedAt != stringToDate(result["updated_at"] as! String)) {
+                            
+                            println("\(counter) Update found in \(pullReq.repoName)!");
+                            
+                            //                        for lbl in result["labels"] as! NSArray{
+                            //                            var l = LabelManager.sharedInstance.newLabel()
+                            //                            l.color = lbl["color"] as! String
+                            //                            l.name = lbl["name"] as! String
+                            //                            l.pullRequest = pullReq
+                            //                            LabelManager.sharedInstance.save()
+                            //                        }
+                            
+                            var labels: Array<Label>!
+                            for lbl in result["labels"] as! NSArray{
+                                var l = LabelManager.sharedInstance.newLabel();
+                                l.color = lbl["color"] as! String;
+                                l.name = lbl["name"] as! String;
+                                labels.append(l);
+                            }
+                            pullReq.labels = NSSet(array: labels);
+                            PullRequestManager.sharedInstance.save()
                         }
-                        pullReq.labels = NSSet(array: labels);
-                        PullRequestManager.sharedInstance.save()
                     }
                 }
             }
         }
-        
+        else {
+            println("O loco fera, e essa internet ruim ai?")
+        }
         
     }
     
