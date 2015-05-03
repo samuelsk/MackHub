@@ -98,8 +98,16 @@ class GitHubManager {
     //MARK: Data updates verification
     
     func checkForUpdatesWithInterval(interval: Double) {
+        let task = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+            self.timer?.invalidate();
+        });
         timer?.invalidate();
         timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: "checkUpdates", userInfo: nil, repeats: true);
+        
+//        if (task != UIBackgroundTaskInvalid) {
+//            println("teste3");
+//            UIApplication.sharedApplication().endBackgroundTask(task);
+//        }
     }
     
     @objc func checkUpdates() {
