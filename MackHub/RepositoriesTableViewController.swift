@@ -49,6 +49,16 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         }
     }
     
+    func searchRepos(term: String) {
+        var foundRepos = Array<Repository>();
+        for repo in repos {
+            if ((repo.name.lowercaseString as NSString).containsString(term.lowercaseString)) {
+                foundRepos.append(repo);
+            }
+        }
+        repos = foundRepos;
+    }
+    
     func sendRepo(notif: NSNotification){
         nCenter.postNotificationName(nKey, object: nil, userInfo: ["repo":repos[selectedCell]])
     }
@@ -70,7 +80,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         let repo = self.repos[indexPath.row];
         cell.repositoryName.text = repo.name
-        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.updatedAt))";
+        cell.updatedAt.text = "Last update: \(ghManager.dateToString(repo.updatedAt))";
         cell.language.text = repo.progLanguage;
         
         cell.hideInfo()
@@ -130,6 +140,12 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         return true
     }
     
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        repos = RepositoryManager.sharedInstance.fetchRepositories();
+        searchRepos(searchText);
+        tableRepos.reloadData();
+    }
+    
     func dismissSearchBarFromTouch(tapGesture: UIGestureRecognizer) {
         blackView.removeFromSuperview()
         repositorySearchBar.resignFirstResponder()
@@ -140,10 +156,10 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         repositorySearchBar.resignFirstResponder()
     }
     
-    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        selectedCell = indexPath.row
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        if (searchBar.text.isEmpty) {
+            repos = RepositoryManager.sharedInstance.fetchRepositories();
+            tableRepos.reloadData();
+        }
     }
-    
-    // MARK: - Navigation
-
 }
