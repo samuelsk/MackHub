@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Rafael Fernandes de Oliveira Carvalho. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -19,10 +20,13 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
     }()
     
     var selectedCell = -1
+    var blackView = UIView()
     
     @IBOutlet weak var tableRepos: UITableView!
     
     var ghManager = GitHubManager.sharedInstance;
+    
+    //MARK: - Interface
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,42 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         nCenter.addObserver(self, selector: "sendRepo:", name: pKey, object: nil)
     }
-
+    
+    //MARK: SearchBar
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        
+        blackView = UIView(frame: CGRect(x: 0, y: tableRepos.frame.origin.y, width: 2048, height: self.view.frame.size.height))
+        blackView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
+        blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissSearchBarFromTouch:"))
+        self.view.addSubview(blackView)
+        
+        return true
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        repos = RepositoryManager.sharedInstance.fetchRepositories();
+        searchRepos(searchText);
+        tableRepos.reloadData();
+    }
+    
+    func dismissSearchBarFromTouch(tapGesture: UIGestureRecognizer) {
+        blackView.removeFromSuperview()
+        repositorySearchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        blackView.removeFromSuperview()
+        repositorySearchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        if (searchBar.text.isEmpty) {
+            repos = RepositoryManager.sharedInstance.fetchRepositories();
+            tableRepos.reloadData();
+        }
+    }
+    
     @IBAction func refreshRepos(sender: AnyObject) {
         CoreDataManager.sharedInstance.resetCoreData();
         ghManager.loadRepos()
@@ -70,7 +109,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         
         let repo = self.repos[indexPath.row];
         cell.repositoryName.text = repo.name
-        cell.updatedAt.text = "Updated: \(ghManager.dateToString(repo.updatedAt))";
+        cell.updatedAt.text = "Last update: \(ghManager.dateToString(repo.updatedAt))";
         cell.language.text = repo.progLanguage;
         
         cell.hideInfo()
@@ -116,28 +155,6 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         } else {
             return 50
         }
-    }
-    
-    var blackView = UIView()
-    
-    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-        
-        blackView = UIView(frame: CGRect(x: 0, y: tableRepos.frame.origin.y, width: 2048, height: self.view.frame.size.height))
-        blackView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
-        blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "dismissSearchBarFromTouch:"))
-        self.view.addSubview(blackView)
-        
-        return true
-    }
-    
-    func dismissSearchBarFromTouch(tapGesture: UIGestureRecognizer) {
-        blackView.removeFromSuperview()
-        repositorySearchBar.resignFirstResponder()
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        blackView.removeFromSuperview()
-        repositorySearchBar.resignFirstResponder()
     }
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
