@@ -145,6 +145,15 @@ class GitHubManager {
                             
                             pullReq.labels = NSSet(array: labels);
                             PullRequestManager.sharedInstance.save()
+                            
+                            var notif = UILocalNotification()
+                            notif.fireDate = NSDate(timeIntervalSinceNow: 0)
+                            notif.alertBody = "O PullRequest do repositório \(pullReq.repoName) foi atualizado"
+                            notif.alertTitle = "PullRequest atualizado"
+                            notif.soundName = UILocalNotificationDefaultSoundName
+                            notif.timeZone = NSTimeZone.defaultTimeZone()
+                            notif.applicationIconBadgeNumber = 1
+                            UIApplication.sharedApplication().scheduleLocalNotification(notif)
                         }
                     }
                 }
