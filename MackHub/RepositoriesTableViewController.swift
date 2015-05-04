@@ -175,6 +175,7 @@ class RepositoriesTableViewController: UIViewController, UISearchBarDelegate, UI
         alerta.addAction(acao1)
         
         let acao2: UIAlertAction = UIAlertAction(title: "Sair", style: .Default) { action -> Void in
+            CoreDataManager.sharedInstance.resetCoreData();
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
         alerta.addAction(acao2)
