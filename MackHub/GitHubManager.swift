@@ -16,16 +16,14 @@ class GitHubManager {
     static let sharedInstance = GitHubManager();
     
     //Auxiliary variables
-    private let userDefaults = NSUserDefaults.standardUserDefaults();
     private var timer: NSTimer?;
     
     //Whenever a new login will be set, it'll be saved in NSUserDefaults so the user won't need to insert his login again next time he starts the app.
     var login: String! {
         willSet {
-            userDefaults.setValue(login, forKey: "login");
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setValue(newValue, forKey: "login");
             userDefaults.synchronize();
-            
-            self.login = newValue;
         }
     }
     
@@ -33,9 +31,8 @@ class GitHubManager {
     
     private init() {
         //If a login was set before in NSUserDefaults, it'll be retrieved when GitHubManager is called the first time.
-        if let login = userDefaults.objectForKey("login") as? String {
-            self.login = login;
-        }
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        login = userDefaults.valueForKey("login") as? String;
     }
     
     //MARK: - GitHub API

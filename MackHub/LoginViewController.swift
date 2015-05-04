@@ -22,7 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBarHidden = true;
         
         if ((ghManager.login) != nil) {
-            performSegueWithIdentifier("repositoriesSegue", sender: self);
+            self.performSegueWithIdentifier("repositoriesSegue", sender: self)
         }
         
         login.delegate = self;
